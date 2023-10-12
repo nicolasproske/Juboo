@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# User settings
+xcuserdata/
+
+# App packaging
+*.ipa
+
+# Swift Package Manager
+.build/

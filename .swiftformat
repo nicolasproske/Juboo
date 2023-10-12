@@ -1,0 +1,25 @@
+--swiftversion 5.8
+
+# file options
+
+--exclude BuildTools
+
+# format options
+
+--allman false
+--commas inline
+--elseposition same-line
+--guardelse same-line
+--voidtype void
+--header ignore
+--ifdef indent
+--indent 4
+--indentcase false
+--maxwidth 180
+--self remove
+--semicolons inline
+--trimwhitespace always
+
+# rules
+
+--enable isEmpty,acronyms,blockComments,blankLineAfterImports,blankLinesBetweenImports,sortSwitchCases,wrapConditionalBodies,wrapEnumCases,wrapSwitchCases
