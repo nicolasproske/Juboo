@@ -9,28 +9,15 @@
 import SwiftUI
 
 extension DashboardView {
-    var header: some View {
-        HStack(spacing: 15) {
-            Image("memoji-3")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 48, height: 48)
-                .clipShape(Circle())
-
-            Text("Hey, Nico")
-                .font(.largeTitle)
-                .bold()
-        }
-        .padding(.horizontal, 5)
-    }
-
     var leadingContent: some View {
         ScrollView {
             VStack(spacing: 30) {
                 whatsNewPageSection
                 friendsPageSection
             }
+            .padding(.top)
         }
+        .scrollIndicators(.hidden)
     }
 
     var whatsNewPageSection: some View {
@@ -77,7 +64,6 @@ extension DashboardView {
             VStack(alignment: .leading) {
                 Text(activity.title)
                     .bold()
-                    .lineLimit(1)
 
                 Text("\(activity.takesPlaceOn.formatted(date: .numeric, time: .shortened)) Uhr")
                     .foregroundStyle(.secondary)
@@ -135,6 +121,51 @@ extension DashboardView {
         private var timestamp: some View {
             Text("Vor \(Int.random(in: 2 ... 59)) Minuten")
                 .foregroundStyle(.secondary)
+        }
+    }
+
+    var trailingContent: some View {
+        VStack(spacing: 30) {
+            progressPageSection
+
+            Spacer()
+        }
+        .padding(.top)
+        .frame(width: 320)
+    }
+
+    var progressPageSection: some View {
+        PageSection(title: "Dein Fortschritt", caption: "Matche dich mit deinen Freunden") {
+            VStack(alignment: .leading, spacing: 10) {
+                Text("🥈")
+                    .padding(5)
+                    .background(.gray.opacity(0.5))
+                    .clipShape(Circle())
+
+                ProgressView(value: 75.0, total: 100.0)
+                    .progressViewStyle(.linear)
+
+                HStack {
+                    Text("Level 2")
+                    Circle()
+                        .frame(width: 4, height: 4)
+                    Text("75 %")
+                    Spacer()
+                }
+                .foregroundStyle(Color.accentColor)
+                .font(.system(size: 14, weight: .bold))
+                .textCase(.uppercase)
+
+                HStack(alignment: .firstTextBaseline, spacing: 3) {
+                    Text("750")
+                        .font(.title)
+                        .bold()
+
+                    Text("XP")
+                        .foregroundStyle(.secondary)
+                        .fontWeight(.semibold)
+                }
+            }
         }
     }
 }

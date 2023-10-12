@@ -15,7 +15,7 @@ struct PageSection<Content: View>: View {
     @ViewBuilder var content: Content
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 15) {
+        VStack(alignment: .leading, spacing: 5) {
             VStack(alignment: .leading) {
                 Text(title)
                     .font(.system(size: 20))
@@ -27,10 +27,10 @@ struct PageSection<Content: View>: View {
                         .foregroundStyle(.secondary)
                 }
             }
-            .padding(.horizontal, 25)
+            .padding(.horizontal, 30)
 
             content
-                .padding(20)
+                .padding(25)
                 .background(Color(.tertiarySystemBackground))
                 .cornerRadius(8)
                 .padding(5)

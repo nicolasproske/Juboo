@@ -29,6 +29,22 @@ struct ContentView: View {
             }
             .background(.mainBackground)
             .toolbar {
+                ToolbarItemGroup(placement: .topBarLeading) {
+                    let member = MockData.getMembers(count: 1).first!
+
+                    HStack(spacing: 10) {
+                        if let imageName = member.imageName, !imageName.isEmpty {
+                            Image(imageName)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 32, height: 32)
+                                .clipShape(Circle())
+                        }
+
+                        Text(member.username)
+                            .bold()
+                    }
+                }
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Button {
                         print("Tapped")

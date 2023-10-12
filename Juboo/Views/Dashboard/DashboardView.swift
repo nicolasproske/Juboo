@@ -10,16 +10,21 @@ import SwiftUI
 
 struct DashboardView: View {
     var body: some View {
-        VStack(alignment: .leading, spacing: 30) {
-            header
+        ZStack(alignment: .bottomTrailing) {
+            Image("balloon")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 180, height: 180)
+                .padding(40)
 
-            HStack(spacing: 30) {
-                leadingContent
+            VStack(alignment: .leading, spacing: 30) {
+                HStack(spacing: 10) {
+                    leadingContent
+                    trailingContent
+                }
             }
-
-            Spacer()
         }
-        .padding(.horizontal, 40)
+        .padding(.horizontal)
         .navigationTitle("Dashboard")
         .navigationBarTitleDisplayMode(.inline)
     }
