@@ -10,10 +10,10 @@ import Foundation
 
 class Member: Identifiable {
     let id = UUID()
-    
+
     var username: String
     var imageName: String?
-    
+
     init(
         username: String,
         imageName: String? = nil

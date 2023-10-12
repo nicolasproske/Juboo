@@ -11,29 +11,30 @@ import SwiftUI
 struct PageSection<Content: View>: View {
     let title: String
     var caption: String = ""
-    
+
     @ViewBuilder var content: Content
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             VStack(alignment: .leading) {
                 Text(title)
                     .font(.system(size: 20))
                     .bold()
-                
+
                 if !caption.isEmpty {
                     Text(caption)
                         .font(.system(size: 14))
                         .foregroundStyle(.secondary)
                 }
             }
-            .padding(.horizontal)
-            
+            .padding(.horizontal, 25)
+
             content
-                .padding()
+                .padding(20)
                 .background(Color(.tertiarySystemBackground))
                 .cornerRadius(8)
-                .shadow(color: .black.opacity(0.05), radius: 12)
+                .padding(5)
+                .shadow(color: .black.opacity(0.025), radius: 5)
         }
     }
 }

@@ -12,11 +12,11 @@ struct DashboardView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 30) {
             header
-            
+
             HStack(spacing: 30) {
                 leadingContent
             }
-            
+
             Spacer()
         }
         .padding(.horizontal, 40)

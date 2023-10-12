@@ -10,11 +10,11 @@ import Foundation
 
 class Activity: Identifiable {
     let id = UUID()
-    
+
     var title: String
     var takesPlaceOn: Date
     var imageName: String?
-    
+
     init(
         title: String,
         takesPlaceOn: Date = .now,
