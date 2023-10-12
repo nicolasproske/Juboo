@@ -16,7 +16,7 @@ struct SidebarView: View {
             ForEach(SidebarItem.allCases) { sidebarItem in
                 let isSelected = navigationManager.currentSidebarItem == sidebarItem
 
-                HStack {
+                HStack(spacing: 0) {
                     Image(systemName: sidebarItem.sfSymbol)
                         .sidebarItemImage(isSelected: isSelected)
 
@@ -33,6 +33,7 @@ struct SidebarView: View {
         }
         .padding(.horizontal)
         .navigationTitle(Constants.appName)
+        .background(Color(.secondarySystemBackground))
     }
 }
 

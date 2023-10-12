@@ -14,6 +14,7 @@ struct SidebarItemModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .frame(maxWidth: .infinity, alignment: .leading)
+            .contentShape(Rectangle())
             .padding(.horizontal, 10)
             .padding(.vertical, 12)
             .background(isSelected ? Color.accentColor : nil)
@@ -27,6 +28,7 @@ struct SidebarItemImageModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .foregroundStyle(isSelected ? .white : .accentColor)
+            .frame(width: 45)
     }
 }
 

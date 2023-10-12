@@ -29,6 +29,12 @@
 		92FFB3412AD800FE00F37919 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB3402AD800FE00F37919 /* SidebarView.swift */; };
 		92FFB3442AD8023F00F37919 /* SidebarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB3432AD8023F00F37919 /* SidebarItem.swift */; };
 		92FFB3462AD8043300F37919 /* SidebarItemModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB3452AD8043300F37919 /* SidebarItemModifier.swift */; };
+		92FFB34A2AD8220300F37919 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB3492AD8220300F37919 /* Activity.swift */; };
+		92FFB34C2AD8243800F37919 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB34B2AD8243800F37919 /* MockData.swift */; };
+		92FFB34E2AD830D000F37919 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB34D2AD830D000F37919 /* Member.swift */; };
+		92FFB3502AD83C5500F37919 /* MemberGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB34F2AD83C5500F37919 /* MemberGroup.swift */; };
+		92FFB3522AD83CAE00F37919 /* DashboardView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB3512AD83CAE00F37919 /* DashboardView+Components.swift */; };
+		92FFB3542AD83CC400F37919 /* PageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB3532AD83CC400F37919 /* PageSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +63,12 @@
 		92FFB3402AD800FE00F37919 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 		92FFB3432AD8023F00F37919 /* SidebarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarItem.swift; sourceTree = "<group>"; };
 		92FFB3452AD8043300F37919 /* SidebarItemModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarItemModifier.swift; sourceTree = "<group>"; };
+		92FFB3492AD8220300F37919 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		92FFB34B2AD8243800F37919 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		92FFB34D2AD830D000F37919 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		92FFB34F2AD83C5500F37919 /* MemberGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberGroup.swift; sourceTree = "<group>"; };
+		92FFB3512AD83CAE00F37919 /* DashboardView+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardView+Components.swift"; sourceTree = "<group>"; };
+		92FFB3532AD83CC400F37919 /* PageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +110,7 @@
 				92FFB2FB2AD7C37000F37919 /* Assets.xcassets */,
 				92FFB2F72AD7C36F00F37919 /* JubooApp.swift */,
 				92FFB31A2AD7D4B400F37919 /* Views */,
+				92FFB3472AD821F300F37919 /* Models */,
 				92FFB3202AD7E26500F37919 /* Supporting Files */,
 				92FFB2FD2AD7C37000F37919 /* Preview Content */,
 			);
@@ -165,7 +178,9 @@
 		92FFB3292AD7F57B00F37919 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				92FFB34F2AD83C5500F37919 /* MemberGroup.swift */,
 				92FFB3272AD7F55900F37919 /* OneTapLoginButton.swift */,
+				92FFB3532AD83CC400F37919 /* PageSection.swift */,
 				92FFB32A2AD7F58300F37919 /* TextInputField.swift */,
 			);
 			path = Components;
@@ -193,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				92FFB3372AD7FE2400F37919 /* DashboardView.swift */,
+				92FFB3512AD83CAE00F37919 /* DashboardView+Components.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -201,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				92FFB33D2AD7FF6900F37919 /* Constants.swift */,
+				92FFB34B2AD8243800F37919 /* MockData.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -219,6 +236,23 @@
 				92FFB2F92AD7C36F00F37919 /* ContentView.swift */,
 			);
 			path = Content;
+			sourceTree = "<group>";
+		};
+		92FFB3472AD821F300F37919 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				92FFB3482AD821FA00F37919 /* Activity */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		92FFB3482AD821FA00F37919 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				92FFB3492AD8220300F37919 /* Activity.swift */,
+				92FFB34D2AD830D000F37919 /* Member.swift */,
+			);
+			path = Activity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,7 +344,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update # Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release swiftformat \"$SRCROOT\"\n";
+			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update # Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\n#swift run -c release swiftformat \"$SRCROOT\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -319,20 +353,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92FFB34E2AD830D000F37919 /* Member.swift in Sources */,
+				92FFB34A2AD8220300F37919 /* Activity.swift in Sources */,
 				92FFB31D2AD7D50300F37919 /* LoginView.swift in Sources */,
 				92FFB3412AD800FE00F37919 /* SidebarView.swift in Sources */,
 				92FFB3382AD7FE2400F37919 /* DashboardView.swift in Sources */,
 				92FFB3442AD8023F00F37919 /* SidebarItem.swift in Sources */,
+				92FFB3542AD83CC400F37919 /* PageSection.swift in Sources */,
 				92FFB2FA2AD7C36F00F37919 /* ContentView.swift in Sources */,
 				92FFB3282AD7F55900F37919 /* OneTapLoginButton.swift in Sources */,
+				92FFB3522AD83CAE00F37919 /* DashboardView+Components.swift in Sources */,
 				92FFB3232AD7E28200F37919 /* ButtonModifier.swift in Sources */,
 				92FFB3332AD7FB4800F37919 /* LoginView+Components.swift in Sources */,
 				92FFB3352AD7FB8B00F37919 /* LoginView+Functions.swift in Sources */,
 				92FFB2F82AD7C36F00F37919 /* JubooApp.swift in Sources */,
 				92FFB3312AD7FA4C00F37919 /* Screen.swift in Sources */,
 				92FFB32E2AD7F9BA00F37919 /* NavigationManager.swift in Sources */,
+				92FFB34C2AD8243800F37919 /* MockData.swift in Sources */,
 				92FFB3462AD8043300F37919 /* SidebarItemModifier.swift in Sources */,
 				92FFB33E2AD7FF6900F37919 /* Constants.swift in Sources */,
+				92FFB3502AD83C5500F37919 /* MemberGroup.swift in Sources */,
 				92FFB32B2AD7F58300F37919 /* TextInputField.swift in Sources */,
 				92FFB3262AD7E2A400F37919 /* ViewExtension.swift in Sources */,
 			);

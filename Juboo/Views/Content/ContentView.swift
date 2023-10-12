@@ -15,15 +15,33 @@ struct ContentView: View {
         NavigationSplitView {
             SidebarView()
         } detail: {
-            switch navigationManager.currentSidebarItem {
-            case .dashboard:
-                DashboardView()
-            case .discover:
-                Text("Discover")
-            case .chats:
-                Text("Chats")
-            case .settings:
-                Text("Einstellungen")
+            Group {
+                switch navigationManager.currentSidebarItem {
+                case .dashboard:
+                    DashboardView()
+                case .discover:
+                    Text("Entdecken")
+                case .chats:
+                    Text("Chats")
+                case .settings:
+                    Text("Einstellungen")
+                }
+            }
+            .background(.mainBackground)
+            .toolbar {
+                ToolbarItemGroup(placement: .topBarTrailing) {
+                    Button {
+                        print("Tapped")
+                    } label: {
+                        Image(systemName: "questionmark.circle")
+                    }
+
+                    Button {
+                        print("Tapped")
+                    } label: {
+                        Image(systemName: "bell")
+                    }
+                }
             }
         }
     }
