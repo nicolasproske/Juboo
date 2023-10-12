@@ -21,7 +21,7 @@
 
 1. Clone the repository:
 `git clone https://github.com/nicolasproske/Juboo-Project-Module`
-2. Open the Xcode project file `Juboo.xcodeproj` öffnen
+2. Open the Xcode project file `Juboo.xcodeproj`
 
 ---
 

@@ -9,8 +9,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var navigationManager = NavigationManager()
+
     var body: some View {
-        LoginView()
+        Group {
+            switch navigationManager.currentScreen {
+            case .login:
+                LoginView()
+            case .main:
+                Text("Test")
+            }
+        }
+        .environment(navigationManager)
     }
 }
 
