@@ -11,12 +11,19 @@ import Foundation
 @Observable
 final class NavigationManager {
     private(set) var currentScreen: Screen = .login
+    private(set) var currentSidebarItem: SidebarItem = .dashboard
 }
 
 extension NavigationManager {
     func navigate(to screen: Screen) {
         if currentScreen != screen {
             currentScreen = screen
+        }
+    }
+
+    func navigate(to sidebarItem: SidebarItem) {
+        if currentSidebarItem != sidebarItem {
+            currentSidebarItem = sidebarItem
         }
     }
 }

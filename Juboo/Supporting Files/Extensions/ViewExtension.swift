@@ -20,4 +20,16 @@ extension View {
     func borderedButtonOuter() -> some View {
         modifier(BorderedButtonOuterModifier())
     }
+
+    func sidebarItem(isSelected: Bool) -> some View {
+        modifier(SidebarItemModifier(isSelected: isSelected))
+    }
+
+    func sidebarItemImage(isSelected: Bool) -> some View {
+        modifier(SidebarItemImageModifier(isSelected: isSelected))
+    }
+
+    func sidebarItemText(isSelected: Bool) -> some View {
+        modifier(SidebarItemTextModifier(isSelected: isSelected))
+    }
 }

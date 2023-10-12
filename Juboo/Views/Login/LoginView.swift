@@ -10,7 +10,7 @@ import SwiftUI
 
 struct LoginView: View {
     @Environment(NavigationManager.self) var navigationManager
-    
+
     @State var username = ""
     @State var password = ""
 

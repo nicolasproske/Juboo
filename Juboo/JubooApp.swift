@@ -10,9 +10,17 @@ import SwiftUI
 
 @main
 struct JubooApp: App {
+    @State private var navigationManager = NavigationManager()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            switch navigationManager.currentScreen {
+            case .login:
+                LoginView()
+            case .main:
+                ContentView()
+            }
         }
+        .environment(navigationManager)
     }
 }
