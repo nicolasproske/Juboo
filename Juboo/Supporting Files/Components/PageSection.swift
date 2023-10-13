@@ -11,6 +11,7 @@ import SwiftUI
 struct PageSection<Content: View>: View {
     let title: String
     var caption: String = ""
+    var isContentStyled = true
 
     @ViewBuilder var content: Content
 
@@ -29,12 +30,19 @@ struct PageSection<Content: View>: View {
             }
             .padding(.horizontal, 30)
 
-            content
-                .padding(25)
-                .background(Color(.tertiarySystemBackground))
-                .cornerRadius(8)
-                .padding(5)
-                .shadow(color: .black.opacity(0.025), radius: 5)
+            Group {
+                if isContentStyled {
+                    content
+                        .padding(.horizontal, 25)
+                        .padding(.vertical, 20)
+                        .background(Color(.tertiarySystemBackground))
+                        .cornerRadius(8)
+                } else {
+                    content
+                }
+            }
+            .padding(5)
+            .shadow(color: .black.opacity(0.025), radius: 5)
         }
     }
 }

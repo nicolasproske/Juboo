@@ -127,6 +127,7 @@ extension DashboardView {
     var trailingContent: some View {
         VStack(spacing: 30) {
             progressPageSection
+            ticketsPageSection
 
             Spacer()
         }
@@ -165,6 +166,64 @@ extension DashboardView {
                         .foregroundStyle(.secondary)
                         .fontWeight(.semibold)
                 }
+            }
+        }
+    }
+
+    var ticketsPageSection: some View {
+        PageSection(title: "Deine Tickets", caption: "Alle anstehenden Aktivitäten", isContentStyled: false) {
+            VStack(alignment: .leading, spacing: 15) {
+                VStack(spacing: 0) {
+                    VStack(alignment: .leading) {
+                        Text("Anstehende Aktivität")
+                            .foregroundStyle(Color.accentColor)
+                            .textCase(.uppercase)
+                            .font(.caption)
+                            .fontWeight(.semibold)
+
+                        Text("Fahrt in den Europapark")
+                            .fontWeight(.semibold)
+
+                        Text("Erlebt gemeinsam mit uns den Europapark mit mega Achterbahnen, Shows und spannenden Attraktionen.")
+                            .foregroundStyle(.secondary)
+                            .font(.caption)
+                    }
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 15)
+                    .frame(maxWidth: .infinity)
+                    .background(Color(.tertiarySystemBackground))
+
+                    VStack {
+                        HStack(spacing: 10) {
+                            HStack(spacing: 3) {
+                                Image(systemName: "calendar")
+                                Text("24.07.")
+                            }
+
+                            Spacer()
+
+                            HStack(spacing: 3) {
+                                Image(systemName: "clock")
+                                Text("09:00 Uhr")
+                            }
+                        }
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(Color.white)
+                        .padding(.vertical, 3)
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 8)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.accentColor)
+                    .cornerRadius(8)
+                    .offset(y: -4)
+
+                    Circle()
+                        .fill(Color(.tertiarySystemBackground))
+                        .frame(width: 32, height: 32)
+                        .offset(y: -64)
+                }
+                .cornerRadius(8)
             }
         }
     }

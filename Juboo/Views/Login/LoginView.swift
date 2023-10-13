@@ -23,7 +23,6 @@ struct LoginView: View {
 
             trailingContent
         }
-        .onAppear(perform: login)
     }
 }
 

@@ -57,6 +57,12 @@ struct ContentView: View {
                     } label: {
                         Image(systemName: "bell")
                     }
+
+                    Button {
+                        navigationManager.navigate(to: .login)
+                    } label: {
+                        Image(systemName: "arrow.up.forward.app")
+                    }
                 }
             }
         }
