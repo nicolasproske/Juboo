@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9271F3CC2ADA7BB000C20EE7 /* DiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3CB2ADA7BB000C20EE7 /* DiscoveryView.swift */; };
+		9271F3CE2ADAA05800C20EE7 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3CD2ADAA05800C20EE7 /* Badge.swift */; };
+		9271F3D02ADAB00600C20EE7 /* DiscoveryView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3CF2ADAB00600C20EE7 /* DiscoveryView+Components.swift */; };
+		9271F3D22ADAB01400C20EE7 /* DiscoveryView+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3D12ADAB01400C20EE7 /* DiscoveryView+Functions.swift */; };
+		9271F3D42ADAB03300C20EE7 /* DiscoveryView+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3D32ADAB03300C20EE7 /* DiscoveryView+Enums.swift */; };
 		92FFB2F82AD7C36F00F37919 /* JubooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB2F72AD7C36F00F37919 /* JubooApp.swift */; };
 		92FFB2FA2AD7C36F00F37919 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB2F92AD7C36F00F37919 /* ContentView.swift */; };
 		92FFB2FC2AD7C37000F37919 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FFB2FB2AD7C37000F37919 /* Assets.xcassets */; };
@@ -40,6 +44,10 @@
 
 /* Begin PBXFileReference section */
 		9271F3CB2ADA7BB000C20EE7 /* DiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
+		9271F3CD2ADAA05800C20EE7 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		9271F3CF2ADAB00600C20EE7 /* DiscoveryView+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoveryView+Components.swift"; sourceTree = "<group>"; };
+		9271F3D12ADAB01400C20EE7 /* DiscoveryView+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoveryView+Functions.swift"; sourceTree = "<group>"; };
+		9271F3D32ADAB03300C20EE7 /* DiscoveryView+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoveryView+Enums.swift"; sourceTree = "<group>"; };
 		92FFB2F42AD7C36F00F37919 /* Juboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Juboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FFB2F72AD7C36F00F37919 /* JubooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JubooApp.swift; sourceTree = "<group>"; };
 		92FFB2F92AD7C36F00F37919 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +96,9 @@
 			isa = PBXGroup;
 			children = (
 				9271F3CB2ADA7BB000C20EE7 /* DiscoveryView.swift */,
+				9271F3CF2ADAB00600C20EE7 /* DiscoveryView+Components.swift */,
+				9271F3D32ADAB03300C20EE7 /* DiscoveryView+Enums.swift */,
+				9271F3D12ADAB01400C20EE7 /* DiscoveryView+Functions.swift */,
 			);
 			path = Discovery;
 			sourceTree = "<group>";
@@ -193,6 +204,7 @@
 				92FFB3272AD7F55900F37919 /* OneTapLoginButton.swift */,
 				92FFB3532AD83CC400F37919 /* PageSection.swift */,
 				92FFB32A2AD7F58300F37919 /* TextInputField.swift */,
+				9271F3CD2ADAA05800C20EE7 /* Badge.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -365,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92FFB34E2AD830D000F37919 /* Member.swift in Sources */,
+				9271F3CE2ADAA05800C20EE7 /* Badge.swift in Sources */,
 				92FFB34A2AD8220300F37919 /* Activity.swift in Sources */,
 				92FFB31D2AD7D50300F37919 /* LoginView.swift in Sources */,
 				92FFB3412AD800FE00F37919 /* SidebarView.swift in Sources */,
@@ -378,6 +391,7 @@
 				92FFB3332AD7FB4800F37919 /* LoginView+Components.swift in Sources */,
 				92FFB3352AD7FB8B00F37919 /* LoginView+Functions.swift in Sources */,
 				92FFB2F82AD7C36F00F37919 /* JubooApp.swift in Sources */,
+				9271F3D02ADAB00600C20EE7 /* DiscoveryView+Components.swift in Sources */,
 				92FFB3312AD7FA4C00F37919 /* Screen.swift in Sources */,
 				92FFB32E2AD7F9BA00F37919 /* NavigationManager.swift in Sources */,
 				92FFB34C2AD8243800F37919 /* MockData.swift in Sources */,
@@ -385,7 +399,9 @@
 				9271F3CC2ADA7BB000C20EE7 /* DiscoveryView.swift in Sources */,
 				92FFB33E2AD7FF6900F37919 /* Constants.swift in Sources */,
 				92FFB3502AD83C5500F37919 /* MemberGroup.swift in Sources */,
+				9271F3D22ADAB01400C20EE7 /* DiscoveryView+Functions.swift in Sources */,
 				92FFB32B2AD7F58300F37919 /* TextInputField.swift in Sources */,
+				9271F3D42ADAB03300C20EE7 /* DiscoveryView+Enums.swift in Sources */,
 				92FFB3262AD7E2A400F37919 /* ViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,6 +547,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -566,6 +583,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

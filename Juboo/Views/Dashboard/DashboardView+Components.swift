@@ -71,15 +71,14 @@ extension DashboardView {
         }
 
         private var members: some View {
-            let members = MockData.getMembers(count: Int.random(in: 0 ... MockMember.allCases.count))
-            return MemberGroup(members: members)
+            MemberGroup(members: activity.members)
         }
     }
 
     var friendsPageSection: some View {
         PageSection(title: "Deine Freunde", caption: "Aktivitäten von Personen, denen du folgst") {
             VStack(alignment: .leading, spacing: 15) {
-                ForEach(MockData.getMembers()) { member in
+                ForEach(MockData.getMembers(count: 2)) { member in
                     FriendsJournalCell(member: member, description: Text("\(member.username) nimmt an **\(MockData.getActivities(count: 1).first!.title)** teil."))
                     Divider()
                 }

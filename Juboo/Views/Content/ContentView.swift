@@ -11,6 +11,8 @@ import SwiftUI
 struct ContentView: View {
     @Environment(NavigationManager.self) var navigationManager
 
+    private let member = MockData.getMembers(count: 1).first!
+
     var body: some View {
         NavigationSplitView {
             SidebarView()
@@ -28,13 +30,10 @@ struct ContentView: View {
                 }
             }
             .padding(.horizontal)
-            .navigationTitle(navigationManager.currentSidebarItem.title)
             .navigationBarTitleDisplayMode(.inline)
             .background(.mainBackground)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) {
-                    let member = MockData.getMembers(count: 1).first!
-
                     HStack(spacing: 10) {
                         if let imageName = member.imageName, !imageName.isEmpty {
                             Image(imageName)

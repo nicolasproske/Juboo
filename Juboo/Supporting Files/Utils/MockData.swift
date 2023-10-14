@@ -15,7 +15,7 @@ final class MockData {
         return selectedActivities.map(\.object)
     }
 
-    static func getMembers(count: Int = 3) -> [Member] {
+    static func getMembers(count: Int = Int.random(in: 0 ... MockMember.allCases.count)) -> [Member] {
         let allMembers = MockMember.allCases.shuffled()
         let selectedMembers = Array(allMembers.prefix(count))
         return selectedMembers.map(\.object)
@@ -30,11 +30,11 @@ enum MockActivity: CaseIterable {
     var object: Activity {
         switch self {
         case .altstadtfest:
-            return Activity(title: "Amberger Altstadtfest", imageName: "preview-amberg-altstadt")
+            return Activity(title: "Amberger Altstadtfest", takesPlaceAt: "Altstadt Amberg", imageName: "preview-amberg-altstadt")
         case .fussballturnier:
-            return Activity(title: "TV 1861 Amberg Turnier für Jugend", imageName: "preview-fussball")
+            return Activity(title: "TV 1861 Amberg Turnier für Jugend", takesPlaceAt: "Sportplatz Amberg", imageName: "preview-fussball")
         case .uebernachtung_juz:
-            return Activity(title: "Übernachtung im JUZ", imageName: "preview-good-night")
+            return Activity(title: "Übernachtung im JUZ", takesPlaceAt: "Jugendzentrum Amberg", maxMemberCount: 50, imageName: "preview-good-night")
         }
     }
 }
