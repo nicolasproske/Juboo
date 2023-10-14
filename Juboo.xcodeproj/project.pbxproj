@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9271F3CC2ADA7BB000C20EE7 /* DiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3CB2ADA7BB000C20EE7 /* DiscoveryView.swift */; };
 		92FFB2F82AD7C36F00F37919 /* JubooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB2F72AD7C36F00F37919 /* JubooApp.swift */; };
 		92FFB2FA2AD7C36F00F37919 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB2F92AD7C36F00F37919 /* ContentView.swift */; };
 		92FFB2FC2AD7C37000F37919 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FFB2FB2AD7C37000F37919 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9271F3CB2ADA7BB000C20EE7 /* DiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
 		92FFB2F42AD7C36F00F37919 /* Juboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Juboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FFB2F72AD7C36F00F37919 /* JubooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JubooApp.swift; sourceTree = "<group>"; };
 		92FFB2F92AD7C36F00F37919 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9271F3CA2ADA7BA400C20EE7 /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				9271F3CB2ADA7BB000C20EE7 /* DiscoveryView.swift */,
+			);
+			path = Discovery;
+			sourceTree = "<group>";
+		};
 		92FFB2EB2AD7C36F00F37919 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +142,7 @@
 				92FFB3422AD8013700F37919 /* Content */,
 				92FFB33F2AD800F400F37919 /* Sidebar */,
 				92FFB3362AD7FDE700F37919 /* Dashboard */,
+				9271F3CA2ADA7BA400C20EE7 /* Discovery */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -344,7 +355,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update # Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\n#swift run -c release swiftformat \"$SRCROOT\"\n";
+			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update # Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release swiftformat \"$SRCROOT\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -371,6 +382,7 @@
 				92FFB32E2AD7F9BA00F37919 /* NavigationManager.swift in Sources */,
 				92FFB34C2AD8243800F37919 /* MockData.swift in Sources */,
 				92FFB3462AD8043300F37919 /* SidebarItemModifier.swift in Sources */,
+				9271F3CC2ADA7BB000C20EE7 /* DiscoveryView.swift in Sources */,
 				92FFB33E2AD7FF6900F37919 /* Constants.swift in Sources */,
 				92FFB3502AD83C5500F37919 /* MemberGroup.swift in Sources */,
 				92FFB32B2AD7F58300F37919 /* TextInputField.swift in Sources */,

@@ -24,9 +24,6 @@ struct DashboardView: View {
                 }
             }
         }
-        .padding(.horizontal)
-        .navigationTitle("Dashboard")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

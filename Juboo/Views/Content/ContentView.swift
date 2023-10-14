@@ -20,13 +20,16 @@ struct ContentView: View {
                 case .dashboard:
                     DashboardView()
                 case .discover:
-                    Text("Entdecken")
+                    DiscoveryView()
                 case .chats:
                     Text("Chats")
                 case .settings:
                     Text("Einstellungen")
                 }
             }
+            .padding(.horizontal)
+            .navigationTitle(navigationManager.currentSidebarItem.title)
+            .navigationBarTitleDisplayMode(.inline)
             .background(.mainBackground)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) {
