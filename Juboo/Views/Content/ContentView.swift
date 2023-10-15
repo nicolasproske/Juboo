@@ -24,12 +24,11 @@ struct ContentView: View {
                 case .discover:
                     DiscoveryView()
                 case .chats:
-                    Text("Chats")
+                    ChatsView()
                 case .settings:
                     Text("Einstellungen")
                 }
             }
-            .padding(.horizontal)
             .navigationBarTitleDisplayMode(.inline)
             .background(.mainBackground)
             .toolbar {

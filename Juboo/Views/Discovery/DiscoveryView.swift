@@ -27,6 +27,7 @@ struct DiscoveryView: View {
                 .padding(.top, 10)
             }
         }
+        .padding(.horizontal)
         .toolbar {
             ToolbarItem(placement: .principal) {
                 filter

@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		924195DA2ADAC94D007F4662 /* ShadowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924195D92ADAC94D007F4662 /* ShadowModifier.swift */; };
 		9271F3CC2ADA7BB000C20EE7 /* DiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3CB2ADA7BB000C20EE7 /* DiscoveryView.swift */; };
 		9271F3CE2ADAA05800C20EE7 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3CD2ADAA05800C20EE7 /* Badge.swift */; };
 		9271F3D02ADAB00600C20EE7 /* DiscoveryView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3CF2ADAB00600C20EE7 /* DiscoveryView+Components.swift */; };
 		9271F3D22ADAB01400C20EE7 /* DiscoveryView+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3D12ADAB01400C20EE7 /* DiscoveryView+Functions.swift */; };
 		9271F3D42ADAB03300C20EE7 /* DiscoveryView+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3D32ADAB03300C20EE7 /* DiscoveryView+Enums.swift */; };
+		9271F3D72ADAB58000C20EE7 /* ChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3D62ADAB58000C20EE7 /* ChatsView.swift */; };
+		927304342ADBFD2C00148554 /* ProgressBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927304332ADBFD2C00148554 /* ProgressBadge.swift */; };
+		927304372ADC3C8000148554 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927304362ADC3C8000148554 /* Chat.swift */; };
+		927304392ADC3D1000148554 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927304382ADC3D1000148554 /* Message.swift */; };
+		9273043B2ADC53E700148554 /* ChatsView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9273043A2ADC53E700148554 /* ChatsView+Components.swift */; };
 		92FFB2F82AD7C36F00F37919 /* JubooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB2F72AD7C36F00F37919 /* JubooApp.swift */; };
 		92FFB2FA2AD7C36F00F37919 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB2F92AD7C36F00F37919 /* ContentView.swift */; };
 		92FFB2FC2AD7C37000F37919 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92FFB2FB2AD7C37000F37919 /* Assets.xcassets */; };
@@ -43,11 +49,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		924195D92ADAC94D007F4662 /* ShadowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowModifier.swift; sourceTree = "<group>"; };
 		9271F3CB2ADA7BB000C20EE7 /* DiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
 		9271F3CD2ADAA05800C20EE7 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		9271F3CF2ADAB00600C20EE7 /* DiscoveryView+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoveryView+Components.swift"; sourceTree = "<group>"; };
 		9271F3D12ADAB01400C20EE7 /* DiscoveryView+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoveryView+Functions.swift"; sourceTree = "<group>"; };
 		9271F3D32ADAB03300C20EE7 /* DiscoveryView+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoveryView+Enums.swift"; sourceTree = "<group>"; };
+		9271F3D62ADAB58000C20EE7 /* ChatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsView.swift; sourceTree = "<group>"; };
+		927304332ADBFD2C00148554 /* ProgressBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBadge.swift; sourceTree = "<group>"; };
+		927304362ADC3C8000148554 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		927304382ADC3D1000148554 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		9273043A2ADC53E700148554 /* ChatsView+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatsView+Components.swift"; sourceTree = "<group>"; };
 		92FFB2F42AD7C36F00F37919 /* Juboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Juboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92FFB2F72AD7C36F00F37919 /* JubooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JubooApp.swift; sourceTree = "<group>"; };
 		92FFB2F92AD7C36F00F37919 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +115,24 @@
 			path = Discovery;
 			sourceTree = "<group>";
 		};
+		9271F3D52ADAB56700C20EE7 /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				9271F3D62ADAB58000C20EE7 /* ChatsView.swift */,
+				9273043A2ADC53E700148554 /* ChatsView+Components.swift */,
+			);
+			path = Chats;
+			sourceTree = "<group>";
+		};
+		927304352ADC3C7B00148554 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				927304362ADC3C8000148554 /* Chat.swift */,
+				927304382ADC3D1000148554 /* Message.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		92FFB2EB2AD7C36F00F37919 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +184,7 @@
 				92FFB33F2AD800F400F37919 /* Sidebar */,
 				92FFB3362AD7FDE700F37919 /* Dashboard */,
 				9271F3CA2ADA7BA400C20EE7 /* Discovery */,
+				9271F3D52ADAB56700C20EE7 /* Chats */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				92FFB3222AD7E28200F37919 /* ButtonModifier.swift */,
+				924195D92ADAC94D007F4662 /* ShadowModifier.swift */,
 				92FFB3452AD8043300F37919 /* SidebarItemModifier.swift */,
 			);
 			path = ViewModifier;
@@ -200,11 +232,12 @@
 		92FFB3292AD7F57B00F37919 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9271F3CD2ADAA05800C20EE7 /* Badge.swift */,
 				92FFB34F2AD83C5500F37919 /* MemberGroup.swift */,
 				92FFB3272AD7F55900F37919 /* OneTapLoginButton.swift */,
 				92FFB3532AD83CC400F37919 /* PageSection.swift */,
+				927304332ADBFD2C00148554 /* ProgressBadge.swift */,
 				92FFB32A2AD7F58300F37919 /* TextInputField.swift */,
-				9271F3CD2ADAA05800C20EE7 /* Badge.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -264,6 +297,7 @@
 		92FFB3472AD821F300F37919 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				927304352ADC3C7B00148554 /* Chat */,
 				92FFB3482AD821FA00F37919 /* Activity */,
 			);
 			path = Models;
@@ -377,9 +411,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				92FFB34E2AD830D000F37919 /* Member.swift in Sources */,
+				9273043B2ADC53E700148554 /* ChatsView+Components.swift in Sources */,
 				9271F3CE2ADAA05800C20EE7 /* Badge.swift in Sources */,
 				92FFB34A2AD8220300F37919 /* Activity.swift in Sources */,
 				92FFB31D2AD7D50300F37919 /* LoginView.swift in Sources */,
+				9271F3D72ADAB58000C20EE7 /* ChatsView.swift in Sources */,
 				92FFB3412AD800FE00F37919 /* SidebarView.swift in Sources */,
 				92FFB3382AD7FE2400F37919 /* DashboardView.swift in Sources */,
 				92FFB3442AD8023F00F37919 /* SidebarItem.swift in Sources */,
@@ -388,14 +424,17 @@
 				92FFB3282AD7F55900F37919 /* OneTapLoginButton.swift in Sources */,
 				92FFB3522AD83CAE00F37919 /* DashboardView+Components.swift in Sources */,
 				92FFB3232AD7E28200F37919 /* ButtonModifier.swift in Sources */,
+				927304392ADC3D1000148554 /* Message.swift in Sources */,
 				92FFB3332AD7FB4800F37919 /* LoginView+Components.swift in Sources */,
 				92FFB3352AD7FB8B00F37919 /* LoginView+Functions.swift in Sources */,
 				92FFB2F82AD7C36F00F37919 /* JubooApp.swift in Sources */,
 				9271F3D02ADAB00600C20EE7 /* DiscoveryView+Components.swift in Sources */,
 				92FFB3312AD7FA4C00F37919 /* Screen.swift in Sources */,
+				927304342ADBFD2C00148554 /* ProgressBadge.swift in Sources */,
 				92FFB32E2AD7F9BA00F37919 /* NavigationManager.swift in Sources */,
 				92FFB34C2AD8243800F37919 /* MockData.swift in Sources */,
 				92FFB3462AD8043300F37919 /* SidebarItemModifier.swift in Sources */,
+				924195DA2ADAC94D007F4662 /* ShadowModifier.swift in Sources */,
 				9271F3CC2ADA7BB000C20EE7 /* DiscoveryView.swift in Sources */,
 				92FFB33E2AD7FF6900F37919 /* Constants.swift in Sources */,
 				92FFB3502AD83C5500F37919 /* MemberGroup.swift in Sources */,
@@ -403,6 +442,7 @@
 				92FFB32B2AD7F58300F37919 /* TextInputField.swift in Sources */,
 				9271F3D42ADAB03300C20EE7 /* DiscoveryView+Enums.swift in Sources */,
 				92FFB3262AD7E2A400F37919 /* ViewExtension.swift in Sources */,
+				927304372ADC3C8000148554 /* Chat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +587,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -583,7 +622,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

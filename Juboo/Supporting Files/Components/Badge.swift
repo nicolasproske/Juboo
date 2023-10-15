@@ -17,7 +17,7 @@ struct Badge: View {
             .font(.caption)
             .fontWeight(.semibold)
             .foregroundStyle(.white)
-            .shadow(color: .black.opacity(0.25), radius: 2.5)
+            .shadow(opacity: 0.25, radius: 2.5)
             .padding(.horizontal, 10)
             .padding(.vertical, 5)
             .background(color)

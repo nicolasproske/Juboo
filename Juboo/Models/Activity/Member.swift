@@ -8,7 +8,11 @@
 
 import Foundation
 
-class Member: Identifiable {
+class Member: Identifiable, Equatable {
+    static func == (lhs: Member, rhs: Member) -> Bool {
+        lhs.username == rhs.username
+    }
+
     let id = UUID()
 
     var username: String

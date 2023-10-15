@@ -32,4 +32,8 @@ extension View {
     func sidebarItemText(isSelected: Bool) -> some View {
         modifier(SidebarItemTextModifier(isSelected: isSelected))
     }
+
+    func shadow(opacity: CGFloat = 0.04, radius: CGFloat = 5) -> some View {
+        modifier(ShadowModifier(opacity: opacity, radius: radius))
+    }
 }

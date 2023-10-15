@@ -42,7 +42,7 @@ struct PageSection<Content: View>: View {
                 }
             }
             .padding(5)
-            .shadow(color: .black.opacity(0.04), radius: 5)
+            .shadow()
         }
     }
 }

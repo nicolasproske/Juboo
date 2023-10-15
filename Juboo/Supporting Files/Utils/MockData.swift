@@ -20,6 +20,12 @@ final class MockData {
         let selectedMembers = Array(allMembers.prefix(count))
         return selectedMembers.map(\.object)
     }
+
+    static func getChats(count: Int = 3) -> [Chat] {
+        let allChats = MockChat.allCases.shuffled()
+        let selectedChats = Array(allChats.prefix(count))
+        return selectedChats.map(\.object)
+    }
 }
 
 enum MockActivity: CaseIterable {
@@ -64,6 +70,34 @@ enum MockMember: CaseIterable {
             return Member(username: "Sophie", imageName: "memoji-6")
         case .hannah:
             return Member(username: "Hannah", imageName: "memoji-7")
+        }
+    }
+}
+
+enum MockChat: CaseIterable {
+    case lukas
+    case franzi
+    case ollie
+
+    var object: Chat {
+        switch self {
+        case .lukas:
+            return Chat(sender: MockMember.lukas.object, receiver: MockMember.asam.object, messages: [
+                Message(content: "Das ist ein Test Lukas", from: MockMember.lukas.object, timestamp: .now),
+                Message(content: "Das ist ein Test Asam", from: MockMember.asam.object, timestamp: .now)
+            ])
+        case .franzi:
+            return Chat(
+                sender: MockMember.franzi.object,
+                receiver: MockMember.ilayda.object,
+                messages: [Message(content: "Das ist ein Test 2", from: MockMember.franzi.object, timestamp: .now)]
+            )
+        case .ollie:
+            return Chat(
+                sender: MockMember.ollie.object,
+                receiver: MockMember.sophie.object,
+                messages: [Message(content: "Das ist ein Test 3", from: MockMember.ollie.object, timestamp: .now)]
+            )
         }
     }
 }

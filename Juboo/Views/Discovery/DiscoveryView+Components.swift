@@ -31,7 +31,7 @@ extension DiscoveryView {
                 }
                 .background(Color(.tertiarySystemBackground))
                 .cornerRadius(8)
-                .shadow(color: .black.opacity(0.04), radius: 5)
+                .shadow()
 
                 MemberGroup(members: activity.members)
                     .offset(y: 180)
@@ -59,7 +59,7 @@ extension DiscoveryView {
                                 Badge(text: "Noch \(remaining) freie\(remaining == 1 ? "r Platz" : " Plätze")")
                             }
                         }
-                        .shadow(color: .black.opacity(0.20), radius: 15)
+                        .shadow(opacity: 0.2, radius: 15)
                         .padding()
                     }
                 }
