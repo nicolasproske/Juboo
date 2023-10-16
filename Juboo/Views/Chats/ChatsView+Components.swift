@@ -60,6 +60,11 @@ extension ChatsView {
             }
             .listRowBackground(isSelected ? Color(.tertiarySystemBackground) : Color(.tertiarySystemBackground).opacity(0.5))
             .listRowSeparator(.hidden)
+            .onAppear {
+                if selectedChat == chat {
+                    onSelect()
+                }
+            }
         }
 
         @ViewBuilder
