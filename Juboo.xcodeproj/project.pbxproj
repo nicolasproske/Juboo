@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		924195DA2ADAC94D007F4662 /* ShadowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924195D92ADAC94D007F4662 /* ShadowModifier.swift */; };
+		9243B6882ADD3A880007FD0D /* ChatsView+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243B6872ADD3A880007FD0D /* ChatsView+Functions.swift */; };
 		9271F3CC2ADA7BB000C20EE7 /* DiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3CB2ADA7BB000C20EE7 /* DiscoveryView.swift */; };
 		9271F3CE2ADAA05800C20EE7 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3CD2ADAA05800C20EE7 /* Badge.swift */; };
 		9271F3D02ADAB00600C20EE7 /* DiscoveryView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3CF2ADAB00600C20EE7 /* DiscoveryView+Components.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		924195D92ADAC94D007F4662 /* ShadowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowModifier.swift; sourceTree = "<group>"; };
+		9243B6872ADD3A880007FD0D /* ChatsView+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatsView+Functions.swift"; sourceTree = "<group>"; };
 		9271F3CB2ADA7BB000C20EE7 /* DiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
 		9271F3CD2ADAA05800C20EE7 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		9271F3CF2ADAB00600C20EE7 /* DiscoveryView+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoveryView+Components.swift"; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				9271F3D62ADAB58000C20EE7 /* ChatsView.swift */,
 				9273043A2ADC53E700148554 /* ChatsView+Components.swift */,
+				9243B6872ADD3A880007FD0D /* ChatsView+Functions.swift */,
 			);
 			path = Chats;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				92FFB3232AD7E28200F37919 /* ButtonModifier.swift in Sources */,
 				927304392ADC3D1000148554 /* Message.swift in Sources */,
 				92FFB3332AD7FB4800F37919 /* LoginView+Components.swift in Sources */,
+				9243B6882ADD3A880007FD0D /* ChatsView+Functions.swift in Sources */,
 				92FFB3352AD7FB8B00F37919 /* LoginView+Functions.swift in Sources */,
 				92FFB2F82AD7C36F00F37919 /* JubooApp.swift in Sources */,
 				9271F3D02ADAB00600C20EE7 /* DiscoveryView+Components.swift in Sources */,

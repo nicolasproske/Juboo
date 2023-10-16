@@ -85,18 +85,20 @@ enum MockChat: CaseIterable {
             return Chat(sender: MockMember.lukas.object, receiver: MockMember.asam.object, messages: [
                 Message(content: "Das ist ein Test Lukas", from: MockMember.lukas.object, timestamp: .now),
                 Message(content: "Das ist ein Test Asam", from: MockMember.asam.object, timestamp: .now)
-            ])
+            ],
+            lastOpenedOn: .init(timeIntervalSince1970: 0))
         case .franzi:
             return Chat(
                 sender: MockMember.franzi.object,
                 receiver: MockMember.ilayda.object,
-                messages: [Message(content: "Das ist ein Test 2", from: MockMember.franzi.object, timestamp: .now)]
+                messages: [Message(content: "Das ist ein Test 2", from: MockMember.franzi.object, timestamp: .now)],
+                lastOpenedOn: nil
             )
         case .ollie:
             return Chat(
                 sender: MockMember.ollie.object,
                 receiver: MockMember.sophie.object,
-                messages: [Message(content: "Das ist ein Test 3", from: MockMember.ollie.object, timestamp: .now)]
+                messages: [Message(content: "Das ist ein Test 3", from: MockMember.ollie.object, timestamp: .now)], lastOpenedOn: nil
             )
         }
     }

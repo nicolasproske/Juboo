@@ -18,7 +18,9 @@ extension ChatsView {
         List {
             Section {
                 ForEach(chats) { chat in
-                    ChatSelectionCell(chat: chat, isSelected: chat.receiver == selectedChat.receiver)
+                    ChatSelectionCell(chat: chat, selectedChat: $selectedChat) {
+                        selectChat(chat: chat)
+                    }
                 }
             } header: {
                 Text("Offene Chats")
@@ -29,20 +31,31 @@ extension ChatsView {
 
     struct ChatSelectionCell: View {
         let chat: Chat
-        let isSelected: Bool
+        @Binding var selectedChat: Chat
+        let onSelect: () -> Void
+
+        var isSelected: Bool {
+            selectedChat == chat
+        }
 
         var body: some View {
-            HStack(spacing: 8) {
-                image
+            Button {
+                onSelect()
+            } label: {
+                HStack(spacing: 8) {
+                    image
 
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(chat.receiver.username)
-                        .lineLimit(1)
-                        .bold(isSelected)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(chat.receiver.username)
+                            .foregroundColor(.primary)
+                            .lineLimit(1)
+                            .bold(isSelected)
 
-                    Text(chat.messages.last?.content ?? "")
-                        .lineLimit(1)
-                        .foregroundStyle(.secondary)
+                        Text(chat.messages.last?.content ?? "")
+                            .lineLimit(1)
+                            .foregroundStyle(chat.isUnread ? Color.accentColor : Color.secondary)
+                            .bold(chat.isUnread)
+                    }
                 }
             }
             .listRowBackground(isSelected ? Color(.tertiarySystemBackground) : Color(.tertiarySystemBackground).opacity(0.5))

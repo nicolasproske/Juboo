@@ -10,9 +10,9 @@ import SwiftUI
 
 struct ChatsView: View {
     let members = MockData.getMembers()
-
     let chats = MockData.getChats()
-    let selectedChat = MockChat.lukas.object
+
+    @State var selectedChat = MockChat.lukas.object
 
     var body: some View {
         GeometryReader { geometry in
