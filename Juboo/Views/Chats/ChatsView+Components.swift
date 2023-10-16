@@ -31,7 +31,7 @@ extension ChatsView {
 
     struct ChatSelectionCell: View {
         let chat: Chat
-        @Binding var selectedChat: Chat
+        @Binding var selectedChat: Chat?
         let onSelect: () -> Void
 
         var isSelected: Bool {
@@ -51,10 +51,12 @@ extension ChatsView {
                             .lineLimit(1)
                             .bold(isSelected)
 
-                        Text(chat.messages.last?.content ?? "")
-                            .lineLimit(1)
-                            .foregroundStyle(chat.isUnread ? Color.accentColor : Color.secondary)
-                            .bold(chat.isUnread)
+                        if let lastMessage = chat.messages.last, !lastMessage.content.isEmpty {
+                            Text(lastMessage.content)
+                                .lineLimit(1)
+                                .foregroundStyle(chat.isUnread ? Color.accentColor : Color.secondary)
+                                .bold(chat.isUnread)
+                        }
                     }
                 }
             }
@@ -81,9 +83,19 @@ extension ChatsView {
 
     var centerContent: some View {
         VStack(spacing: 0) {
-            Divider()
-            chatContent
-            ChatBar()
+            if selectedChat?.messages.isEmpty == true {
+                ContentUnavailableView(
+                    "Keine Nachrichten gefunden",
+                    systemImage: "bubble",
+                    description: Text("Nutze die untere Eingabeleiste, um deine erste Nachricht zu senden.")
+                )
+            } else {
+                chatContent
+            }
+
+            ChatBar(selectedChat: $selectedChat) { text in
+                sendMessage(text: text)
+            }
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -93,47 +105,52 @@ extension ChatsView {
     var chatContent: some View {
         ScrollView {
             VStack {
-                ForEach(selectedChat.messages) { message in
-                    let selfSend = message.from == selectedChat.sender
+                if let selectedChat {
+                    ForEach(selectedChat.messages) { message in
+                        let selfSend = message.from.username != selectedChat.sender.username
 
-                    VStack(alignment: selfSend ? .leading : .trailing) {
-                        if let imageName = message.from.imageName, !imageName.isEmpty {
-                            Image(imageName)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 24, height: 24)
-                                .clipShape(Circle())
+                        VStack(alignment: selfSend ? .leading : .trailing) {
+                            if let imageName = message.from.imageName, !imageName.isEmpty {
+                                Image(imageName)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 24, height: 24)
+                                    .clipShape(Circle())
+                                    .padding(.horizontal)
+                            }
+
+                            Text(message.content)
+                                .padding(.horizontal)
+                                .padding(.vertical, 8)
+                                .foregroundStyle(selfSend ? Color.primary : Color.white)
+                                .background(selfSend ? Color(.tertiarySystemBackground) : Color.accentColor)
+                                .cornerRadius(8)
+
+                            Text(message.timestamp.formatted(date: .numeric, time: .shortened))
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
                                 .padding(.horizontal)
                         }
-
-                        Text(message.content)
-                            .padding(.horizontal)
-                            .padding(.vertical, 8)
-                            .foregroundStyle(selfSend ? Color.primary : Color.white)
-                            .background(selfSend ? Color(.tertiarySystemBackground) : Color.accentColor)
-                            .cornerRadius(8)
-
-                        Text(message.timestamp.formatted(date: .numeric, time: .shortened))
-                            .font(.footnote)
-                            .foregroundStyle(.secondary)
-                            .padding(.horizontal)
+                        .frame(maxWidth: .infinity, alignment: selfSend ? .leading : .trailing)
                     }
-                    .frame(maxWidth: .infinity, alignment: selfSend ? .leading : .trailing)
                 }
             }
-            .padding(.vertical)
         }
     }
 
     struct ChatBar: View {
+        @Binding var selectedChat: Chat?
+
         @State private var text = ""
+
+        let onSend: (String) -> Void
 
         var body: some View {
             HStack(spacing: 0) {
                 TextField("Tippe zum Schreiben", text: $text)
 
                 Button {
-                    print("Tapped")
+                    onSend(text)
                 } label: {
                     Image(systemName: "arrow.up")
                         .resizable()
@@ -160,40 +177,48 @@ extension ChatsView {
     var trailingContent: some View {
         VStack(spacing: 0) {
             Group {
-                VStack {
-                    if let imageName = selectedChat.receiver.imageName, !imageName.isEmpty {
-                        Image(imageName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40, height: 40)
-                            .clipShape(Circle())
-                    }
+                if let selectedChat {
+                    VStack {
+                        if let imageName = selectedChat.receiver.imageName, !imageName.isEmpty {
+                            Image(imageName)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+                                .clipShape(Circle())
+                        }
 
-                    VStack(spacing: 2) {
-                        Text(selectedChat.receiver.username)
+                        VStack(spacing: 2) {
+                            Text(selectedChat.receiver.username)
 
-                        HStack {
-                            if Bool.random() {
-                                Circle()
-                                    .fill(.green)
-                                    .frame(width: 8, height: 8)
+                            HStack {
+                                if selectedChat.receiver.isOnline {
+                                    Circle()
+                                        .fill(.green)
+                                        .frame(width: 8, height: 8)
 
-                                Text("Online")
+                                    Text("Online")
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                } else {
+                                    Group {
+                                        if let lastSeenOn = selectedChat.receiver.lastSeenOn {
+                                            Text("Zuletzt gesehen am \(lastSeenOn.formatted())")
+                                        } else {
+                                            Text("Noch nie angemeldet")
+                                        }
+                                    }
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
-                            } else {
-                                Text("Zuletzt gesehen vor 2 Minuten")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
+                                }
                             }
                         }
+                        .padding(.horizontal)
+                        .multilineTextAlignment(.center)
                     }
-                    .padding(.horizontal)
-                    .multilineTextAlignment(.center)
-                }
 
-                ProgressBadge()
-                    .padding(.horizontal)
+                    ProgressBadge(member: selectedChat.receiver)
+                        .padding(.horizontal)
+                }
             }
             .frame(maxWidth: .infinity)
             .padding(.vertical)

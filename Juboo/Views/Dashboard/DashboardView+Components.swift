@@ -23,15 +23,24 @@ extension DashboardView {
     var whatsNewPageSection: some View {
         PageSection(title: "Was gibt es Neues?", caption: "Neuigkeiten in deiner Umgebung") {
             VStack(alignment: .leading, spacing: 15) {
-                ForEach(MockData.getActivities()) { activity in
-                    ActivityCell(activity: activity)
-                    Divider()
-                }
+                if activities.isEmpty {
+                    ContentUnavailableView("Keine Aktivitäten in deiner Nähe", systemImage: "shareplay")
+                } else {
+                    ForEach(activities.prefix(2)) { activity in
+                        ActivityCell(activity: activity)
 
-                Button {
-                    print("Tapped")
-                } label: {
-                    Text("Mehr anzeigen")
+                        if activities.prefix(2).last != activity || activities.count > 2 {
+                            Divider()
+                        }
+                    }
+
+                    if activities.count > 2 {
+                        Button {
+                            print("Tapped")
+                        } label: {
+                            Text("Mehr anzeigen")
+                        }
+                    }
                 }
             }
         }
@@ -78,15 +87,16 @@ extension DashboardView {
     var friendsPageSection: some View {
         PageSection(title: "Deine Freunde", caption: "Aktivitäten von Personen, denen du folgst") {
             VStack(alignment: .leading, spacing: 15) {
-                ForEach(MockData.getMembers(count: 2)) { member in
-                    FriendsJournalCell(member: member, description: Text("\(member.username) nimmt an **\(MockData.getActivities(count: 1).first!.title)** teil."))
-                    Divider()
-                }
+                if members.isEmpty {
+                    ContentUnavailableView("Keine aktiven Freunde gefunden", systemImage: "person.fill")
+                } else {
+                    ForEach(members.prefix(3)) { member in
+                        FriendsJournalCell(member: member, description: Text("\(member.username) nimmt an **\(activities.first?.title ?? "nil")** teil."))
 
-                Button {
-                    print("Tapped")
-                } label: {
-                    Text("Mehr anzeigen")
+                        if members.prefix(3).last != member {
+                            Divider()
+                        }
+                    }
                 }
             }
         }
@@ -134,67 +144,87 @@ extension DashboardView {
         .frame(width: 320)
     }
 
+    @ViewBuilder
     var progressPageSection: some View {
-        PageSection(title: "Dein Fortschritt", caption: "Matche dich mit deinen Freunden") {
-            ProgressBadge()
+        if let member = memberManager.currentMember {
+            PageSection(title: "Dein Fortschritt", caption: "Matche dich mit deinen Freunden") {
+                ProgressBadge(member: member)
+            }
         }
     }
 
+    @ViewBuilder
     var ticketsPageSection: some View {
-        PageSection(title: "Deine Tickets", caption: "Alle anstehenden Aktivitäten", isContentStyled: false) {
-            VStack(alignment: .leading, spacing: 15) {
-                VStack(spacing: 0) {
-                    VStack(alignment: .leading) {
-                        Text("Anstehende Aktivität")
-                            .foregroundStyle(Color.accentColor)
-                            .textCase(.uppercase)
-                            .font(.caption)
-                            .fontWeight(.semibold)
-
-                        Text("Fahrt in den Europapark")
-                            .fontWeight(.semibold)
-
-                        Text("Erlebt gemeinsam mit uns den Europapark mit mega Achterbahnen, Shows und spannenden Attraktionen.")
-                            .foregroundStyle(.secondary)
-                            .font(.caption)
+        if let member = memberManager.currentMember, !member.activities.isEmpty {
+            PageSection(title: "Deine Tickets", caption: "Alle anstehenden Aktivitäten", isContentStyled: false) {
+                VStack(alignment: .leading, spacing: 15) {
+                    ForEach(member.activities) { activity in
+                        TicketCell(activity: activity)
                     }
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 15)
-                    .frame(maxWidth: .infinity)
-                    .background(Color(.tertiarySystemBackground))
-
-                    VStack {
-                        HStack(spacing: 10) {
-                            HStack(spacing: 3) {
-                                Image(systemName: "calendar")
-                                Text("24.07.")
-                            }
-
-                            Spacer()
-
-                            HStack(spacing: 3) {
-                                Image(systemName: "clock")
-                                Text("09:00 Uhr")
-                            }
-                        }
-                        .font(.system(size: 15, weight: .semibold))
-                        .foregroundStyle(Color.white)
-                        .padding(.vertical, 3)
-                    }
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 8)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.accentColor)
-                    .cornerRadius(8)
-                    .offset(y: -4)
-
-                    Circle()
-                        .fill(Color(.tertiarySystemBackground))
-                        .frame(width: 32, height: 32)
-                        .offset(y: -64)
                 }
-                .cornerRadius(8)
             }
+        }
+    }
+
+    struct TicketCell: View {
+        let activity: Activity
+
+        var body: some View {
+            VStack(spacing: 0) {
+                VStack(alignment: .leading) {
+                    Text("Anstehende Aktivität")
+                        .foregroundStyle(Color.accentColor)
+                        .textCase(.uppercase)
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .padding(.bottom, 3)
+
+                    Text(activity.title)
+                        .fontWeight(.semibold)
+                        .lineLimit(1)
+
+                    Text(activity.caption)
+                        .foregroundStyle(.secondary)
+                        .font(.caption)
+                        .lineLimit(3)
+                        .padding(.bottom, 8)
+                }
+                .padding(.horizontal, 10)
+                .padding(.vertical, 15)
+                .frame(maxWidth: .infinity)
+                .background(Color(.tertiarySystemBackground))
+
+                VStack {
+                    HStack(spacing: 10) {
+                        HStack(spacing: 3) {
+                            Image(systemName: "calendar")
+                            Text(activity.takesPlaceOn.formatted(date: .numeric, time: .omitted))
+                        }
+
+                        Spacer()
+
+                        HStack(spacing: 3) {
+                            Image(systemName: "clock")
+                            Text("\(activity.takesPlaceOn.formatted(date: .omitted, time: .shortened)) Uhr")
+                        }
+                    }
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundStyle(Color.white)
+                    .padding(.vertical, 3)
+                }
+                .padding(.horizontal, 20)
+                .padding(.vertical, 8)
+                .frame(maxWidth: .infinity)
+                .background(Color.accentColor)
+                .cornerRadius(8)
+                .offset(y: -4)
+
+                Circle()
+                    .fill(Color(.tertiarySystemBackground))
+                    .frame(width: 32, height: 32)
+                    .offset(y: -64)
+            }
+            .cornerRadius(8)
         }
     }
 }

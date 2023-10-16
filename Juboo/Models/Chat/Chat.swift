@@ -7,21 +7,17 @@
 //
 
 import Foundation
+import SwiftData
 
-class Chat: Identifiable, Equatable {
-    static func == (lhs: Chat, rhs: Chat) -> Bool {
-        lhs.sender == rhs.sender
-    }
-
-    let id = UUID()
-
+@Model
+class Chat {
     var sender: Member
     var receiver: Member
 
     var messages: [Message]
     var lastOpenedOn: Date?
 
-    init(sender: Member, receiver: Member, messages: [Message], lastOpenedOn: Date?) {
+    init(sender: Member, receiver: Member, messages: [Message] = [], lastOpenedOn: Date? = nil) {
         self.sender = sender
         self.receiver = receiver
         self.messages = messages

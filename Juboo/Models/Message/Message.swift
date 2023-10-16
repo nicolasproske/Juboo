@@ -7,10 +7,10 @@
 //
 
 import Foundation
+import SwiftData
 
-class Message: Identifiable {
-    let id = UUID()
-
+@Model
+class Message {
     var content: String
     var from: Member
     let timestamp: Date

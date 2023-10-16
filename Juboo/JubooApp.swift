@@ -6,11 +6,13 @@
 //  Copyright © 2023 Nicolas Proske. All rights reserved.
 //
 
+import SwiftData
 import SwiftUI
 
 @main
 struct JubooApp: App {
     @State private var navigationManager = NavigationManager()
+    @State private var memberManager = MemberManager()
 
     var body: some Scene {
         WindowGroup {
@@ -22,5 +24,7 @@ struct JubooApp: App {
             }
         }
         .environment(navigationManager)
+        .environment(memberManager)
+        .modelContainer(for: [Activity.self, Chat.self, Member.self, Message.self])
     }
 }

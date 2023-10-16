@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		924195DA2ADAC94D007F4662 /* ShadowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924195D92ADAC94D007F4662 /* ShadowModifier.swift */; };
 		9243B6882ADD3A880007FD0D /* ChatsView+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243B6872ADD3A880007FD0D /* ChatsView+Functions.swift */; };
+		9243B68D2ADD43530007FD0D /* MemberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243B68C2ADD43530007FD0D /* MemberManager.swift */; };
 		9271F3CC2ADA7BB000C20EE7 /* DiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3CB2ADA7BB000C20EE7 /* DiscoveryView.swift */; };
 		9271F3CE2ADAA05800C20EE7 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3CD2ADAA05800C20EE7 /* Badge.swift */; };
 		9271F3D02ADAB00600C20EE7 /* DiscoveryView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3CF2ADAB00600C20EE7 /* DiscoveryView+Components.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		924195D92ADAC94D007F4662 /* ShadowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowModifier.swift; sourceTree = "<group>"; };
 		9243B6872ADD3A880007FD0D /* ChatsView+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatsView+Functions.swift"; sourceTree = "<group>"; };
+		9243B68C2ADD43530007FD0D /* MemberManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberManager.swift; sourceTree = "<group>"; };
 		9271F3CB2ADA7BB000C20EE7 /* DiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
 		9271F3CD2ADAA05800C20EE7 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		9271F3CF2ADAB00600C20EE7 /* DiscoveryView+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiscoveryView+Components.swift"; sourceTree = "<group>"; };
@@ -106,6 +108,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9243B6892ADD3F3C0007FD0D /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				92FFB34D2AD830D000F37919 /* Member.swift */,
+			);
+			path = Member;
+			sourceTree = "<group>";
+		};
+		9243B68A2ADD3FF40007FD0D /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				927304382ADC3D1000148554 /* Message.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		9243B68B2ADD434B0007FD0D /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				9243B68C2ADD43530007FD0D /* MemberManager.swift */,
+			);
+			path = Member;
+			sourceTree = "<group>";
+		};
 		9271F3CA2ADA7BA400C20EE7 /* Discovery */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				927304362ADC3C8000148554 /* Chat.swift */,
-				927304382ADC3D1000148554 /* Message.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -248,6 +273,7 @@
 		92FFB32C2AD7F9B000F37919 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				9243B68B2ADD434B0007FD0D /* Member */,
 				92FFB32F2AD7FA4400F37919 /* Navigation */,
 			);
 			path = Manager;
@@ -300,8 +326,10 @@
 		92FFB3472AD821F300F37919 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				927304352ADC3C7B00148554 /* Chat */,
 				92FFB3482AD821FA00F37919 /* Activity */,
+				927304352ADC3C7B00148554 /* Chat */,
+				9243B6892ADD3F3C0007FD0D /* Member */,
+				9243B68A2ADD3FF40007FD0D /* Message */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -310,7 +338,6 @@
 			isa = PBXGroup;
 			children = (
 				92FFB3492AD8220300F37919 /* Activity.swift */,
-				92FFB34D2AD830D000F37919 /* Member.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -404,7 +431,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update # Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\n#swift run -c release swiftformat \"$SRCROOT\"\n";
+			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update # Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release swiftformat \"$SRCROOT\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -418,6 +445,7 @@
 				9271F3CE2ADAA05800C20EE7 /* Badge.swift in Sources */,
 				92FFB34A2AD8220300F37919 /* Activity.swift in Sources */,
 				92FFB31D2AD7D50300F37919 /* LoginView.swift in Sources */,
+				9243B68D2ADD43530007FD0D /* MemberManager.swift in Sources */,
 				9271F3D72ADAB58000C20EE7 /* ChatsView.swift in Sources */,
 				92FFB3412AD800FE00F37919 /* SidebarView.swift in Sources */,
 				92FFB3382AD7FE2400F37919 /* DashboardView.swift in Sources */,

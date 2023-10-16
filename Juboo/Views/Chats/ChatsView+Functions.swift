@@ -9,8 +9,15 @@
 import Foundation
 
 extension ChatsView {
-    func selectChat(chat: Chat) {
+    func selectChat(chat: Chat?) {
         selectedChat = chat
-        selectedChat.lastOpenedOn = .now
+
+        if let selectedChat {
+            selectedChat.lastOpenedOn = .now
+        }
+    }
+
+    func sendMessage(text: String) {
+        print(text)
     }
 }

@@ -9,19 +9,19 @@
 import Foundation
 
 final class MockData {
-    static func getActivities(count: Int = 3) -> [Activity] {
+    static func getActivities(count: Int = MockActivity.allCases.count) -> [Activity] {
         let allActivities = MockActivity.allCases.shuffled()
         let selectedActivities = Array(allActivities.prefix(count))
         return selectedActivities.map(\.object)
     }
 
-    static func getMembers(count: Int = Int.random(in: 0 ... MockMember.allCases.count)) -> [Member] {
+    static func getMembers(count: Int = MockMember.allCases.count) -> [Member] {
         let allMembers = MockMember.allCases.shuffled()
         let selectedMembers = Array(allMembers.prefix(count))
         return selectedMembers.map(\.object)
     }
 
-    static func getChats(count: Int = 3) -> [Chat] {
+    static func getChats(count: Int = MockChat.allCases.count) -> [Chat] {
         let allChats = MockChat.allCases.shuffled()
         let selectedChats = Array(allChats.prefix(count))
         return selectedChats.map(\.object)
@@ -36,11 +36,11 @@ enum MockActivity: CaseIterable {
     var object: Activity {
         switch self {
         case .altstadtfest:
-            return Activity(title: "Amberger Altstadtfest", takesPlaceAt: "Altstadt Amberg", imageName: "preview-amberg-altstadt")
+            return MockObject.altstadtfest
         case .fussballturnier:
-            return Activity(title: "TV 1861 Amberg Turnier für Jugend", takesPlaceAt: "Sportplatz Amberg", imageName: "preview-fussball")
+            return MockObject.fussballturnier
         case .uebernachtung_juz:
-            return Activity(title: "Übernachtung im JUZ", takesPlaceAt: "Jugendzentrum Amberg", maxMemberCount: 50, imageName: "preview-good-night")
+            return MockObject.uebernachtung_juz
         }
     }
 }
@@ -57,49 +57,70 @@ enum MockMember: CaseIterable {
     var object: Member {
         switch self {
         case .lukas:
-            return Member(username: "Lukas", imageName: "memoji-1")
+            return MockObject.lukas
         case .franzi:
-            return Member(username: "Franzi", imageName: "memoji-2")
+            return MockObject.franzi
         case .ollie:
-            return Member(username: "Ollie", imageName: "memoji-3")
+            return MockObject.ollie
         case .asam:
-            return Member(username: "Asam", imageName: "memoji-4")
+            return MockObject.asam
         case .ilayda:
-            return Member(username: "Ilayda", imageName: "memoji-5")
+            return MockObject.ilayda
         case .sophie:
-            return Member(username: "Sophie", imageName: "memoji-6")
+            return MockObject.sophie
         case .hannah:
-            return Member(username: "Hannah", imageName: "memoji-7")
+            return MockObject.hannah
         }
     }
 }
 
 enum MockChat: CaseIterable {
-    case lukas
-    case franzi
-    case ollie
+    case asam
+    case ilayda
 
     var object: Chat {
         switch self {
-        case .lukas:
-            return Chat(sender: MockMember.lukas.object, receiver: MockMember.asam.object, messages: [
-                Message(content: "Das ist ein Test Lukas", from: MockMember.lukas.object, timestamp: .now),
-                Message(content: "Das ist ein Test Asam", from: MockMember.asam.object, timestamp: .now)
-            ],
-            lastOpenedOn: .init(timeIntervalSince1970: 0))
-        case .franzi:
-            return Chat(
-                sender: MockMember.franzi.object,
-                receiver: MockMember.ilayda.object,
-                messages: [Message(content: "Das ist ein Test 2", from: MockMember.franzi.object, timestamp: .now)],
-                lastOpenedOn: nil
-            )
-        case .ollie:
-            return Chat(
-                sender: MockMember.ollie.object,
-                receiver: MockMember.sophie.object,
-                messages: [Message(content: "Das ist ein Test 3", from: MockMember.ollie.object, timestamp: .now)], lastOpenedOn: nil
-            )
+        case .asam:
+            return MockObject.chat_asam
+        case .ilayda:
+            return MockObject.chat_ilayda
         }
     }
+}
+
+enum MockObject {
+    static let altstadtfest = Activity(
+        title: "Amberger Altstadtfest",
+        caption: "Die kulinarische Vielfalt reicht von Bratwürsten über Brezn und Backwaren aller Art bis hin zu Lángos, Döner, und diversen Süßwaren. Neben einem Pils Pavillon und einem Weinstand gibt es Cocktails aller Art an der Colomba-Bar. Zum Ausschank kommen die gepflegten Biere der Brauerei Bruckmüller.",
+        takesPlaceOn: Calendar.current.date(byAdding: .day, value: Int.random(in: 1 ... 30), to: Date())!,
+        takesPlaceAt: "Altstadt Amberg",
+        imageName: "preview-amberg-altstadt"
+    )
+    static let fussballturnier = Activity(
+        title: "TV 1861 Amberg Turnier für Jugend",
+        caption: "Nach langer Pause geht es wieder los. News und Interviews aus den Reihen des TV 1861 Amberg.",
+        takesPlaceOn: Calendar.current.date(byAdding: .day, value: Int.random(in: 1 ... 30), to: Date())!,
+        takesPlaceAt: "Sportplatz Amberg",
+        imageName: "preview-fussball"
+    )
+    static let uebernachtung_juz = Activity(
+        title: "Übernachtung im JUZ",
+        caption: "Einmal im Monat bietet das JUZ wieder allen Jugendlichen die Möglichkeit einen gemeinsamen Abend mit Übernachtung und Frühstück im JUZ / Turnhalle zu,verbringen. Natürlich ist auch für ein Rahmenprogramm gesorgt.",
+        takesPlaceOn: Calendar.current.date(byAdding: .day, value: Int.random(in: 1 ... 30), to: Date())!,
+        takesPlaceAt: "Jugendzentrum Amberg",
+        members: [MockObject.ollie, MockObject.sophie, MockObject.hannah],
+        maxMemberCount: 50,
+        imageName: "preview-good-night"
+    )
+
+    static let lukas = Member(username: "Lukas", imageName: "memoji-1", isOnline: true, progress: 80.0, badge: "💡", level: 8, xp: 625)
+    static let franzi = Member(username: "Franzi", imageName: "memoji-2", isOnline: true, lastSeenOn: .now, progress: 25.0, badge: "🔮", level: 6, xp: 125)
+    static let ollie = Member(username: "Ollie", imageName: "memoji-3", lastSeenOn: Date(timeIntervalSince1970: 0), progress: 10.0, badge: "🚀", level: 12, xp: 50)
+    static let asam = Member(username: "Asam", imageName: "memoji-4", lastSeenOn: .now, progress: 40.0, badge: "🎁", level: 3, xp: 320)
+    static let ilayda = Member(username: "Ilayda", imageName: "memoji-5", isOnline: true, lastSeenOn: .now, progress: 65.0, badge: "🥇", level: 1, xp: 490)
+    static let sophie = Member(username: "Sophie", imageName: "memoji-6", progress: 50.0, badge: "🎉", level: 3, xp: 375)
+    static let hannah = Member(username: "Hannah", imageName: "memoji-7", lastSeenOn: Date(timeIntervalSince1970: 0), progress: 90.0, badge: "🕹", level: 5, xp: 800)
+
+    static let chat_asam = Chat(sender: MockObject.lukas, receiver: MockObject.asam, lastOpenedOn: .init(timeIntervalSince1970: 0))
+    static let chat_ilayda = Chat(sender: MockObject.franzi, receiver: MockObject.ilayda)
 }

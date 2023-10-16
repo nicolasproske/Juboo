@@ -6,30 +6,45 @@
 //  Copyright © 2023 Nicolas Proske. All rights reserved.
 //
 
+import SwiftData
 import SwiftUI
 
 struct ChatsView: View {
-    let members = MockData.getMembers()
-    let chats = MockData.getChats()
+    @Environment(\.modelContext) var context
 
-    @State var selectedChat = MockChat.lukas.object
+    @Query var chats: [Chat]
+
+    @State var selectedChat: Chat?
 
     var body: some View {
         GeometryReader { geometry in
-            HStack(spacing: 0) {
-                leadingContent
-                    .frame(width: geometry.size.width / 4)
+            if chats.isEmpty {
+                ContentUnavailableView(
+                    "Keine Chats gestartet",
+                    systemImage: "bubble.left.and.bubble.right",
+                    description: Text("Du hast noch mit niemandem Kontakt. Gehe auf ein Profil und sende eine Nachricht.")
+                )
+            } else {
+                HStack(spacing: 0) {
+                    leadingContent
+                        .frame(width: geometry.size.width / 4)
 
-                divider
+                    divider
 
-                centerContent
+                    centerContent
 
-                divider
+                    divider
 
-                trailingContent
-                    .frame(width: geometry.size.width / 4)
+                    trailingContent
+                        .frame(width: geometry.size.width / 4)
 
-                Spacer()
+                    Spacer()
+                }
+                .onAppear {
+                    if let firstChat = chats.first {
+                        selectChat(chat: firstChat)
+                    }
+                }
             }
         }
     }

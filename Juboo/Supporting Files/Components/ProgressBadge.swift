@@ -9,21 +9,25 @@
 import SwiftUI
 
 struct ProgressBadge: View {
+    let member: Member
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("🥈")
-                .padding(5)
-                .background(.gray.opacity(0.5))
-                .clipShape(Circle())
+            if !member.badge.isEmpty {
+                Text(member.badge)
+                    .padding(10)
+                    .background(Color.primary.opacity(0.1))
+                    .clipShape(Circle())
+            }
 
-            ProgressView(value: 75.0, total: 100.0)
+            ProgressView(value: member.progress, total: 100.0)
                 .progressViewStyle(.linear)
 
             HStack {
-                Text("Level 2")
+                Text("Level \(member.level)")
                 Circle()
                     .frame(width: 4, height: 4)
-                Text("75 %")
+                Text("\(member.progress.rounded(.up).formatted(.percent))")
                 Spacer()
             }
             .foregroundStyle(Color.accentColor)
@@ -31,7 +35,7 @@ struct ProgressBadge: View {
             .textCase(.uppercase)
 
             HStack(alignment: .firstTextBaseline, spacing: 3) {
-                Text("750")
+                Text("\(member.xp)")
                     .font(.title)
                     .bold()
 

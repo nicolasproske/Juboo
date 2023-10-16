@@ -6,9 +6,15 @@
 //  Copyright © 2023 Nicolas Proske. All rights reserved.
 //
 
+import SwiftData
 import SwiftUI
 
 struct DashboardView: View {
+    @Environment(MemberManager.self) var memberManager
+
+    @Query(sort: \Activity.takesPlaceOn, order: .reverse) var activities: [Activity]
+    @Query(sort: \Member.username, order: .forward) var members: [Member]
+
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             Image("balloon")

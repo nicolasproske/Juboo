@@ -10,8 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(NavigationManager.self) var navigationManager
-
-    private let member = MockData.getMembers(count: 1).first!
+    @Environment(MemberManager.self) var memberManager
 
     var body: some View {
         NavigationSplitView {
@@ -34,7 +33,7 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) {
                     HStack(spacing: 10) {
-                        if let imageName = member.imageName, !imageName.isEmpty {
+                        if let imageName = memberManager.currentMember?.imageName, !imageName.isEmpty {
                             Image(imageName)
                                 .resizable()
                                 .scaledToFit()
@@ -42,7 +41,7 @@ struct ContentView: View {
                                 .clipShape(Circle())
                         }
 
-                        Text(member.username)
+                        Text(memberManager.currentMember?.username ?? "Benutzer nicht gefunden")
                             .bold()
                     }
                 }

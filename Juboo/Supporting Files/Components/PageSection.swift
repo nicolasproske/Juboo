@@ -35,6 +35,7 @@ struct PageSection<Content: View>: View {
                     content
                         .padding(.horizontal, 25)
                         .padding(.vertical, 20)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .background(Color(.tertiarySystemBackground))
                         .cornerRadius(8)
                 } else {

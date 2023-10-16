@@ -10,6 +10,11 @@ import SwiftUI
 
 extension LoginView {
     func login() {
-        navigationManager.navigate(to: .main)
+        if let randomMember = members.randomElement() {
+            memberManager.loginMember(member: randomMember)
+            navigationManager.navigate(to: .main)
+        } else {
+            print("No member found in context")
+        }
     }
 }

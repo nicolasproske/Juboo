@@ -6,25 +6,39 @@
 //  Copyright © 2023 Nicolas Proske. All rights reserved.
 //
 
+import SwiftData
 import SwiftUI
 
 struct DiscoveryView: View {
     @State var selectedFilterItem = FilterItem.all
 
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
-    private let activities = MockData.getActivities()
+
+    @Query var activities: [Activity]
+
+    var filteredActivities: [Activity] {
+        activities.filter { activity in
+            filterActivity(activity)
+        }
+    }
 
     var body: some View {
         VStack(spacing: 0) {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 15) {
-                    ForEach(activities.filter { activity in
-                        filterActivity(activity)
-                    }) { activity in
-                        ActivityCell(activity: activity)
+            if filteredActivities.isEmpty {
+                ContentUnavailableView(
+                    "Keine Aktivitäten in deiner Nähe",
+                    systemImage: "shareplay",
+                    description: Text("In deiner Umgebung werden noch keine Aktivitäten mit den ausgewählten Filterkriterien angeboten.")
+                )
+            } else {
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 15) {
+                        ForEach(filteredActivities) { activity in
+                            ActivityCell(activity: activity)
+                        }
                     }
+                    .padding(.top, 10)
                 }
-                .padding(.top, 10)
             }
         }
         .padding(.horizontal)

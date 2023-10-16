@@ -50,13 +50,17 @@ extension DiscoveryView {
                             .clipped()
 
                         HStack {
-                            if activity.isNew {
-                                Badge(text: "Neu", color: .green)
-                            }
+                            if activity.isDone {
+                                Badge(text: "Abgelaufen", color: .red)
+                            } else {
+                                if activity.isNew {
+                                    Badge(text: "Neu", color: .green)
+                                }
 
-                            if activity.maxMemberCount > 0 {
-                                let remaining = activity.maxMemberCount - activity.members.count
-                                Badge(text: "Noch \(remaining) freie\(remaining == 1 ? "r Platz" : " Plätze")")
+                                if activity.maxMemberCount > 0 {
+                                    let remaining = activity.maxMemberCount - activity.members.count
+                                    Badge(text: "Noch \(remaining) freie\(remaining == 1 ? "r Platz" : " Plätze")")
+                                }
                             }
                         }
                         .shadow(opacity: 0.2, radius: 15)
