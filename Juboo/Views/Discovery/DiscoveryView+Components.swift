@@ -24,18 +24,23 @@ extension DiscoveryView {
         let activity: Activity
 
         var body: some View {
-            ZStack(alignment: .topLeading) {
-                VStack(alignment: .leading) {
-                    image
-                    content
-                }
-                .background(Color(.tertiarySystemBackground))
-                .cornerRadius(8)
-                .shadow()
+            NavigationLink {
+                ActivityDetailView(activity: activity)
+            } label: {
+                ZStack(alignment: .topLeading) {
+                    VStack(alignment: .leading) {
+                        image
+                        content
+                    }
+                    .background(Color(.tertiarySystemBackground))
+                    .cornerRadius(8)
+                    .shadow()
 
-                MemberGroup(members: activity.members)
-                    .offset(y: 180)
-                    .padding(.leading)
+                    MemberGroup(members: activity.members)
+                        .offset(y: 180)
+                        .padding(.leading)
+                }
+                .foregroundColor(.primary)
             }
         }
 

@@ -36,7 +36,7 @@ extension DashboardView {
 
                     if activities.count > 2 {
                         Button {
-                            print("Tapped")
+                            navigationManager.navigate(to: .discover)
                         } label: {
                             Text("Mehr anzeigen")
                         }
@@ -50,11 +50,16 @@ extension DashboardView {
         let activity: Activity
 
         var body: some View {
-            HStack(spacing: 15) {
-                image
-                textDescription
-                Spacer()
-                members
+            NavigationLink {
+                ActivityDetailView(activity: activity)
+            } label: {
+                HStack(spacing: 15) {
+                    image
+                    textDescription
+                    Spacer()
+                    members
+                }
+                .foregroundColor(.primary)
             }
         }
 
@@ -91,7 +96,14 @@ extension DashboardView {
                     ContentUnavailableView("Keine aktiven Freunde gefunden", systemImage: "person.fill")
                 } else {
                     ForEach(members.prefix(3)) { member in
-                        JournalCell(member: member, description: Text("\(member.username) nimmt an **\(activities.first?.title ?? "nil")** teil."))
+                        if let activity = activities.first {
+                            NavigationLink {
+                                ActivityDetailView(activity: activity)
+                            } label: {
+                                JournalCell(member: member, description: "\(member.username) nimmt an \(activity.title) teil.")
+                                    .foregroundColor(.primary)
+                            }
+                        }
 
                         if members.prefix(3).last != member {
                             Divider()

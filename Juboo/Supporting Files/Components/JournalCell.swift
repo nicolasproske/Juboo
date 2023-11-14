@@ -10,7 +10,7 @@ import SwiftUI
 
 struct JournalCell: View {
     let member: Member
-    let description: Text
+    let description: String
     var isNavigationActive: Bool = true
 
     var body: some View {
@@ -18,7 +18,7 @@ struct JournalCell: View {
             content
 
             VStack(alignment: .leading) {
-                description
+                Text(description)
                 timestamp
             }
         }

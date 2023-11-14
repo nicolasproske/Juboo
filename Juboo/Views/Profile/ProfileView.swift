@@ -19,7 +19,7 @@ struct ProfileView: View {
                 VStack(alignment: .trailing) {
                     HStack {
                         ActionButton(sfSymbol: "plus", text: "Folgen")
-                        ActionButton(sfSymbol: "paperplane", text: "Nachricht")
+                        ActionButton(sfSymbol: "paperplane.fill", text: "Nachricht")
                     }
 
                     ZStack {

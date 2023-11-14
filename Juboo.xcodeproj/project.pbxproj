@@ -22,6 +22,9 @@
 		9273043B2ADC53E700148554 /* ChatsView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9273043A2ADC53E700148554 /* ChatsView+Components.swift */; };
 		92ACCDEE2B03AE6A00EA72AB /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACCDED2B03AE6A00EA72AB /* JournalCell.swift */; };
 		92ACCDF02B03BA8000EA72AB /* ProfileView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACCDEF2B03BA8000EA72AB /* ProfileView+Components.swift */; };
+		92ACCDF32B03C40B00EA72AB /* ActivityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACCDF22B03C40B00EA72AB /* ActivityDetailView.swift */; };
+		92ACCDF52B03C79B00EA72AB /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACCDF42B03C79B00EA72AB /* ActionButton.swift */; };
+		92ACCDF72B03CE7500EA72AB /* ActivityDetailView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92ACCDF62B03CE7500EA72AB /* ActivityDetailView+Components.swift */; };
 		92B5E9A02AF93223006015D3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B5E99F2AF93223006015D3 /* ProfileView.swift */; };
 		92B5E9A22AF93363006015D3 /* ContentView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B5E9A12AF93363006015D3 /* ContentView+Components.swift */; };
 		92FFB2F82AD7C36F00F37919 /* JubooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB2F72AD7C36F00F37919 /* JubooApp.swift */; };
@@ -70,6 +73,9 @@
 		9273043A2ADC53E700148554 /* ChatsView+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatsView+Components.swift"; sourceTree = "<group>"; };
 		92ACCDED2B03AE6A00EA72AB /* JournalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
 		92ACCDEF2B03BA8000EA72AB /* ProfileView+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileView+Components.swift"; sourceTree = "<group>"; };
+		92ACCDF22B03C40B00EA72AB /* ActivityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailView.swift; sourceTree = "<group>"; };
+		92ACCDF42B03C79B00EA72AB /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		92ACCDF62B03CE7500EA72AB /* ActivityDetailView+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityDetailView+Components.swift"; sourceTree = "<group>"; };
 		92B5E99F2AF93223006015D3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		92B5E9A12AF93363006015D3 /* ContentView+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView+Components.swift"; sourceTree = "<group>"; };
 		92FFB2F42AD7C36F00F37919 /* Juboo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Juboo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +175,15 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		92ACCDF12B03C3FE00EA72AB /* ActivityDetail */ = {
+			isa = PBXGroup;
+			children = (
+				92ACCDF22B03C40B00EA72AB /* ActivityDetailView.swift */,
+				92ACCDF62B03CE7500EA72AB /* ActivityDetailView+Components.swift */,
+			);
+			path = ActivityDetail;
+			sourceTree = "<group>";
+		};
 		92B5E99E2AF93209006015D3 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +243,7 @@
 				92FFB3422AD8013700F37919 /* Content */,
 				92FFB33F2AD800F400F37919 /* Sidebar */,
 				92FFB3362AD7FDE700F37919 /* Dashboard */,
+				92ACCDF12B03C3FE00EA72AB /* ActivityDetail */,
 				9271F3CA2ADA7BA400C20EE7 /* Discovery */,
 				9271F3D52ADAB56700C20EE7 /* Chats */,
 				92B5E99E2AF93209006015D3 /* Profile */,
@@ -285,6 +301,7 @@
 				927304332ADBFD2C00148554 /* ProgressBadge.swift */,
 				92FFB32A2AD7F58300F37919 /* TextInputField.swift */,
 				92ACCDED2B03AE6A00EA72AB /* JournalCell.swift */,
+				92ACCDF42B03C79B00EA72AB /* ActionButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -474,6 +491,7 @@
 				92FFB3542AD83CC400F37919 /* PageSection.swift in Sources */,
 				92FFB2FA2AD7C36F00F37919 /* ContentView.swift in Sources */,
 				92FFB3282AD7F55900F37919 /* OneTapLoginButton.swift in Sources */,
+				92ACCDF72B03CE7500EA72AB /* ActivityDetailView+Components.swift in Sources */,
 				92FFB3522AD83CAE00F37919 /* DashboardView+Components.swift in Sources */,
 				92FFB3232AD7E28200F37919 /* ButtonModifier.swift in Sources */,
 				927304392ADC3D1000148554 /* Message.swift in Sources */,
@@ -493,11 +511,13 @@
 				92FFB33E2AD7FF6900F37919 /* Constants.swift in Sources */,
 				92FFB3502AD83C5500F37919 /* MemberGroup.swift in Sources */,
 				9271F3D22ADAB01400C20EE7 /* DiscoveryView+Functions.swift in Sources */,
+				92ACCDF52B03C79B00EA72AB /* ActionButton.swift in Sources */,
 				92FFB32B2AD7F58300F37919 /* TextInputField.swift in Sources */,
 				9271F3D42ADAB03300C20EE7 /* DiscoveryView+Enums.swift in Sources */,
 				92FFB3262AD7E2A400F37919 /* ViewExtension.swift in Sources */,
 				92ACCDEE2B03AE6A00EA72AB /* JournalCell.swift in Sources */,
 				92B5E9A22AF93363006015D3 /* ContentView+Components.swift in Sources */,
+				92ACCDF32B03C40B00EA72AB /* ActivityDetailView.swift in Sources */,
 				927304372ADC3C8000148554 /* Chat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

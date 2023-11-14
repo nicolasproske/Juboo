@@ -10,6 +10,7 @@ import SwiftData
 import SwiftUI
 
 struct DashboardView: View {
+    @Environment(NavigationManager.self) var navigationManager
     @Environment(MemberManager.self) var memberManager
 
     @Query(sort: \Activity.takesPlaceOn, order: .reverse) var activities: [Activity]
