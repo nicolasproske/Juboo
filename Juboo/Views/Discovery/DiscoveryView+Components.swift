@@ -51,10 +51,10 @@ extension DiscoveryView {
 
                         HStack {
                             if activity.isDone {
-                                Badge(text: "Abgelaufen", color: .red)
+                                Badge(text: "Abgelaufen", backgroundColor: .red)
                             } else {
                                 if activity.isNew {
-                                    Badge(text: "Neu", color: .green)
+                                    Badge(text: "Neu", backgroundColor: .green)
                                 }
 
                                 if activity.maxMemberCount > 0 {

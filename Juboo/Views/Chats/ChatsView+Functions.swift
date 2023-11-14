@@ -18,6 +18,10 @@ extension ChatsView {
     }
 
     func sendMessage(text: String) {
+//        if let member = memberManager.currentMember {
+//            let message = Message(content: text, from: member, timestamp: .now)
+//            selectedChat?.messages.append(message)
+//        }
         print(text)
     }
 }

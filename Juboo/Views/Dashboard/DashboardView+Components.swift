@@ -91,7 +91,7 @@ extension DashboardView {
                     ContentUnavailableView("Keine aktiven Freunde gefunden", systemImage: "person.fill")
                 } else {
                     ForEach(members.prefix(3)) { member in
-                        FriendsJournalCell(member: member, description: Text("\(member.username) nimmt an **\(activities.first?.title ?? "nil")** teil."))
+                        JournalCell(member: member, description: Text("\(member.username) nimmt an **\(activities.first?.title ?? "nil")** teil."))
 
                         if members.prefix(3).last != member {
                             Divider()
@@ -99,37 +99,6 @@ extension DashboardView {
                     }
                 }
             }
-        }
-    }
-
-    struct FriendsJournalCell: View {
-        let member: Member
-        let description: Text
-
-        var body: some View {
-            HStack(spacing: 15) {
-                image
-
-                VStack(alignment: .leading) {
-                    description
-                    timestamp
-                }
-            }
-        }
-
-        @ViewBuilder private var image: some View {
-            if let imageName = member.imageName, !imageName.isEmpty {
-                Image(imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 48, height: 48)
-                    .clipShape(Circle())
-            }
-        }
-
-        private var timestamp: some View {
-            Text("Vor \(Int.random(in: 2 ... 59)) Minuten")
-                .foregroundStyle(.secondary)
         }
     }
 

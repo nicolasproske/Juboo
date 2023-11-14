@@ -11,13 +11,13 @@ import SwiftData
 
 @Model
 class Chat {
-    var sender: Member
-    var receiver: Member
+    @Relationship(deleteRule: .nullify) var sender: Member?
+    @Relationship(deleteRule: .nullify) var receiver: Member?
 
     var messages: [Message]
     var lastOpenedOn: Date?
 
-    init(sender: Member, receiver: Member, messages: [Message] = [], lastOpenedOn: Date? = nil) {
+    init(sender: Member? = nil, receiver: Member? = nil, messages: [Message] = [], lastOpenedOn: Date? = nil) {
         self.sender = sender
         self.receiver = receiver
         self.messages = messages

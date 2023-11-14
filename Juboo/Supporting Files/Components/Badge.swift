@@ -10,21 +10,26 @@ import SwiftUI
 
 struct Badge: View {
     let text: String
-    var color: Color = .accentColor
+    var textColor: Color = .white
+    var backgroundColor: Color = .accentColor
+    var opacity: CGFloat = 1.0
+    var showShadow = true
+    var fullWidth = false
 
     var body: some View {
         Text(text)
-            .font(.caption)
-            .fontWeight(.semibold)
-            .foregroundStyle(.white)
-            .shadow(opacity: 0.25, radius: 2.5)
+            .lineLimit(1)
+            .font(.system(size: 12, weight: .semibold))
+            .foregroundStyle(textColor)
+            .shadow(opacity: showShadow ? 0.25 : 0.0, radius: 2.5)
             .padding(.horizontal, 10)
             .padding(.vertical, 5)
-            .background(color)
+            .frame(maxWidth: fullWidth ? .infinity : nil)
+            .background(backgroundColor.opacity(opacity))
             .cornerRadius(6)
     }
 }
 
 #Preview {
-    Badge(text: "Sample text", color: .green)
+    Badge(text: "Sample text", backgroundColor: .green)
 }

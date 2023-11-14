@@ -12,10 +12,10 @@ import SwiftData
 @Model
 class Message {
     var content: String
-    var from: Member
+    @Relationship(deleteRule: .nullify) var from: Member?
     let timestamp: Date
 
-    init(content: String, from: Member, timestamp: Date) {
+    init(content: String, from: Member? = nil, timestamp: Date) {
         self.content = content
         self.from = from
         self.timestamp = timestamp

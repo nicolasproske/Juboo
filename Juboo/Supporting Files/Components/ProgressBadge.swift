@@ -27,7 +27,7 @@ struct ProgressBadge: View {
                 Text("Level \(member.level)")
                 Circle()
                     .frame(width: 4, height: 4)
-                Text("\(member.progress.rounded(.up).formatted(.percent))")
+                Text("\(member.progress.formatted())%")
                 Spacer()
             }
             .foregroundStyle(Color.accentColor)

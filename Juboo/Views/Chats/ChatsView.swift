@@ -12,6 +12,8 @@ import SwiftUI
 struct ChatsView: View {
     @Environment(\.modelContext) var context
 
+    @Environment(MemberManager.self) var memberManager
+
     @Query var chats: [Chat]
 
     @State var selectedChat: Chat?

@@ -46,7 +46,7 @@ extension ChatsView {
                     image
 
                     VStack(alignment: .leading, spacing: 2) {
-                        Text(chat.receiver.username)
+                        Text(chat.receiver?.username ?? "")
                             .foregroundColor(.primary)
                             .lineLimit(1)
                             .bold(isSelected)
@@ -71,7 +71,7 @@ extension ChatsView {
 
         @ViewBuilder
         var image: some View {
-            if let imageName = chat.receiver.imageName, !imageName.isEmpty {
+            if let imageName = chat.receiver?.imageName, !imageName.isEmpty {
                 Image(imageName)
                     .resizable()
                     .scaledToFit()
@@ -107,10 +107,10 @@ extension ChatsView {
             VStack {
                 if let selectedChat {
                     ForEach(selectedChat.messages) { message in
-                        let selfSend = message.from.username != selectedChat.sender.username
+                        let selfSend = message.from?.username != selectedChat.sender?.username
 
                         VStack(alignment: selfSend ? .leading : .trailing) {
-                            if let imageName = message.from.imageName, !imageName.isEmpty {
+                            if let imageName = message.from?.imageName, !imageName.isEmpty {
                                 Image(imageName)
                                     .resizable()
                                     .scaledToFit()
@@ -179,7 +179,7 @@ extension ChatsView {
             Group {
                 if let selectedChat {
                     VStack {
-                        if let imageName = selectedChat.receiver.imageName, !imageName.isEmpty {
+                        if let imageName = selectedChat.receiver?.imageName, !imageName.isEmpty {
                             Image(imageName)
                                 .resizable()
                                 .scaledToFit()
@@ -188,10 +188,10 @@ extension ChatsView {
                         }
 
                         VStack(spacing: 2) {
-                            Text(selectedChat.receiver.username)
+                            Text(selectedChat.receiver?.username ?? "")
 
                             HStack {
-                                if selectedChat.receiver.isOnline {
+                                if selectedChat.receiver?.isOnline ?? false {
                                     Circle()
                                         .fill(.green)
                                         .frame(width: 8, height: 8)
@@ -201,7 +201,7 @@ extension ChatsView {
                                         .foregroundStyle(.secondary)
                                 } else {
                                     Group {
-                                        if let lastSeenOn = selectedChat.receiver.lastSeenOn {
+                                        if let lastSeenOn = selectedChat.receiver?.lastSeenOn {
                                             Text("Zuletzt gesehen am \(lastSeenOn.formatted())")
                                         } else {
                                             Text("Noch nie angemeldet")
@@ -216,8 +216,10 @@ extension ChatsView {
                         .multilineTextAlignment(.center)
                     }
 
-                    ProgressBadge(member: selectedChat.receiver)
-                        .padding(.horizontal)
+                    if let receiver = selectedChat.receiver {
+                        ProgressBadge(member: receiver)
+                            .padding(.horizontal)
+                    }
                 }
             }
             .frame(maxWidth: .infinity)

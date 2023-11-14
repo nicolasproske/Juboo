@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct PageSection<Content: View>: View {
-    let title: String
+    var title: String = ""
     var caption: String = ""
     var isContentStyled = true
 
@@ -17,18 +17,20 @@ struct PageSection<Content: View>: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            VStack(alignment: .leading) {
-                Text(title)
-                    .font(.system(size: 20))
-                    .bold()
+            if !title.isEmpty {
+                VStack(alignment: .leading) {
+                    Text(title)
+                        .font(.system(size: 20))
+                        .bold()
 
-                if !caption.isEmpty {
-                    Text(caption)
-                        .font(.system(size: 14))
-                        .foregroundStyle(.secondary)
+                    if !caption.isEmpty {
+                        Text(caption)
+                            .font(.system(size: 14))
+                            .foregroundStyle(.secondary)
+                    }
                 }
+                .padding(.horizontal, 30)
             }
-            .padding(.horizontal, 30)
 
             Group {
                 if isContentStyled {

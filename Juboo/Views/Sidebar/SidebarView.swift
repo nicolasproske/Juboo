@@ -13,7 +13,7 @@ struct SidebarView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            ForEach(SidebarItem.allCases) { sidebarItem in
+            ForEach(SidebarItem.allCases.filter(\.showInSidebar)) { sidebarItem in
                 let isSelected = navigationManager.currentSidebarItem == sidebarItem
 
                 HStack(spacing: 0) {

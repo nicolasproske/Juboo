@@ -16,6 +16,7 @@ enum SidebarItem: String, Identifiable, CaseIterable {
     case dashboard
     case discover
     case chats
+    case profile
     case settings
 
     var title: String {
@@ -26,6 +27,8 @@ enum SidebarItem: String, Identifiable, CaseIterable {
             return "Entdecken"
         case .chats:
             return "Chats"
+        case .profile:
+            return "Profil"
         case .settings:
             return "Einstellungen"
         }
@@ -39,8 +42,19 @@ enum SidebarItem: String, Identifiable, CaseIterable {
             return "shareplay"
         case .chats:
             return "bubble.left.and.bubble.right"
+        case .profile:
+            return "person"
         case .settings:
             return "gearshape"
+        }
+    }
+
+    var showInSidebar: Bool {
+        switch self {
+        case .profile:
+            return false
+        default:
+            return true
         }
     }
 }

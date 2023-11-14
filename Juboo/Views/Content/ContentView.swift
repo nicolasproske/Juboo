@@ -24,25 +24,36 @@ struct ContentView: View {
                     DiscoveryView()
                 case .chats:
                     ChatsView()
+                case .profile:
+                    if let member = memberManager.currentMember {
+                        ProfileView(member: member)
+                    }
                 case .settings:
                     Text("Einstellungen")
+//                default:
+//                    siteNotFound
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
             .background(.mainBackground)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) {
-                    HStack(spacing: 10) {
-                        if let imageName = memberManager.currentMember?.imageName, !imageName.isEmpty {
-                            Image(imageName)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 32, height: 32)
-                                .clipShape(Circle())
-                        }
+                    Button {
+                        navigationManager.navigate(to: .profile)
+                    } label: {
+                        HStack(spacing: 10) {
+                            if let imageName = memberManager.currentMember?.imageName, !imageName.isEmpty {
+                                Image(imageName)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 32, height: 32)
+                                    .clipShape(Circle())
+                            }
 
-                        Text(memberManager.currentMember?.username ?? "Benutzer nicht gefunden")
-                            .bold()
+                            Text(memberManager.currentMember?.username ?? "Benutzer nicht gefunden")
+                                .foregroundColor(.primary)
+                                .bold()
+                        }
                     }
                 }
                 ToolbarItemGroup(placement: .topBarTrailing) {
