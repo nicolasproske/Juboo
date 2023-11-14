@@ -52,5 +52,6 @@ struct ProfileView: View {
         }
         .padding(.horizontal)
         .scrollIndicators(.hidden)
+        .background(.mainBackground)
     }
 }

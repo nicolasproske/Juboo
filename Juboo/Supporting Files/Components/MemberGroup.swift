@@ -19,16 +19,20 @@ struct MemberGroup: View {
                 if index < 2 {
                     let member = members[index]
                     if let imageName = member.imageName, !imageName.isEmpty {
-                        ZStack {
-                            Circle()
-                                .fill(Color(.tertiarySystemBackground))
-                                .frame(width: 40, height: 40)
+                        NavigationLink {
+                            ProfileView(member: member)
+                        } label: {
+                            ZStack {
+                                Circle()
+                                    .fill(Color(.tertiarySystemBackground))
+                                    .frame(width: 40, height: 40)
 
-                            Image(imageName)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 30, height: 30)
-                                .clipShape(Circle())
+                                Image(imageName)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 30, height: 30)
+                                    .clipShape(Circle())
+                            }
                         }
                     }
                 } else {

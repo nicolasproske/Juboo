@@ -16,63 +16,65 @@ struct ContentView: View {
         NavigationSplitView {
             SidebarView()
         } detail: {
-            Group {
-                switch navigationManager.currentSidebarItem {
-                case .dashboard:
-                    DashboardView()
-                case .discover:
-                    DiscoveryView()
-                case .chats:
-                    ChatsView()
-                case .profile:
-                    if let member = memberManager.currentMember {
-                        ProfileView(member: member)
+            NavigationStack {
+                Group {
+                    switch navigationManager.currentSidebarItem {
+                    case .dashboard:
+                        DashboardView()
+                    case .discover:
+                        DiscoveryView()
+                    case .chats:
+                        ChatsView()
+                    case .profile:
+                        if let member = memberManager.currentMember {
+                            ProfileView(member: member)
+                        }
+                    case .settings:
+                        Text("Einstellungen")
+                        //                default:
+                        //                    siteNotFound
                     }
-                case .settings:
-                    Text("Einstellungen")
-//                default:
-//                    siteNotFound
                 }
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .background(.mainBackground)
-            .toolbar {
-                ToolbarItemGroup(placement: .topBarLeading) {
-                    Button {
-                        navigationManager.navigate(to: .profile)
-                    } label: {
-                        HStack(spacing: 10) {
-                            if let imageName = memberManager.currentMember?.imageName, !imageName.isEmpty {
-                                Image(imageName)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 32, height: 32)
-                                    .clipShape(Circle())
-                            }
+                .navigationBarTitleDisplayMode(.inline)
+                .background(.mainBackground)
+                .toolbar {
+                    ToolbarItemGroup(placement: .topBarLeading) {
+                        Button {
+                            navigationManager.navigate(to: .profile)
+                        } label: {
+                            HStack(spacing: 10) {
+                                if let imageName = memberManager.currentMember?.imageName, !imageName.isEmpty {
+                                    Image(imageName)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 32, height: 32)
+                                        .clipShape(Circle())
+                                }
 
-                            Text(memberManager.currentMember?.username ?? "Benutzer nicht gefunden")
-                                .foregroundColor(.primary)
-                                .bold()
+                                Text(memberManager.currentMember?.username ?? "Benutzer nicht gefunden")
+                                    .foregroundColor(.primary)
+                                    .bold()
+                            }
                         }
                     }
-                }
-                ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button {
-                        print("Tapped")
-                    } label: {
-                        Image(systemName: "questionmark.circle")
-                    }
+                    ToolbarItemGroup(placement: .topBarTrailing) {
+                        Button {
+                            print("Tapped")
+                        } label: {
+                            Image(systemName: "questionmark.circle")
+                        }
 
-                    Button {
-                        print("Tapped")
-                    } label: {
-                        Image(systemName: "bell")
-                    }
+                        Button {
+                            print("Tapped")
+                        } label: {
+                            Image(systemName: "bell")
+                        }
 
-                    Button {
-                        navigationManager.navigate(to: .login)
-                    } label: {
-                        Image(systemName: "arrow.up.forward.app")
+                        Button {
+                            navigationManager.navigate(to: .login)
+                        } label: {
+                            Image(systemName: "arrow.up.forward.app")
+                        }
                     }
                 }
             }

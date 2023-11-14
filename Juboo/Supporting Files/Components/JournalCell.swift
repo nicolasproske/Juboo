@@ -11,15 +11,28 @@ import SwiftUI
 struct JournalCell: View {
     let member: Member
     let description: Text
+    var isNavigationActive: Bool = true
 
     var body: some View {
         HStack(spacing: 15) {
-            image
+            content
 
             VStack(alignment: .leading) {
                 description
                 timestamp
             }
+        }
+    }
+
+    @ViewBuilder private var content: some View {
+        if isNavigationActive {
+            NavigationLink {
+                ProfileView(member: member)
+            } label: {
+                image
+            }
+        } else {
+            image
         }
     }
 

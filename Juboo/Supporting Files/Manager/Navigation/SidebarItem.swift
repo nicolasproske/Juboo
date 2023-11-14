@@ -39,11 +39,11 @@ enum SidebarItem: String, Identifiable, CaseIterable {
         case .dashboard:
             return "squares.leading.rectangle"
         case .discover:
-            return "shareplay"
+            return "shared.with.you"
         case .chats:
             return "bubble.left.and.bubble.right"
         case .profile:
-            return "person"
+            return "person.crop.circle"
         case .settings:
             return "gearshape"
         }
@@ -51,8 +51,6 @@ enum SidebarItem: String, Identifiable, CaseIterable {
 
     var showInSidebar: Bool {
         switch self {
-        case .profile:
-            return false
         default:
             return true
         }

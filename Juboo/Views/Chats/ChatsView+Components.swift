@@ -177,43 +177,48 @@ extension ChatsView {
     var trailingContent: some View {
         VStack(spacing: 0) {
             Group {
-                if let selectedChat {
-                    VStack {
-                        if let imageName = selectedChat.receiver?.imageName, !imageName.isEmpty {
-                            Image(imageName)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 40, height: 40)
-                                .clipShape(Circle())
-                        }
+                if let selectedChat, let receiver = selectedChat.receiver {
+                    NavigationLink {
+                        ProfileView(member: receiver)
+                    } label: {
+                        VStack {
+                            if let imageName = selectedChat.receiver?.imageName, !imageName.isEmpty {
+                                Image(imageName)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)
+                                    .clipShape(Circle())
+                            }
 
-                        VStack(spacing: 2) {
-                            Text(selectedChat.receiver?.username ?? "")
+                            VStack(spacing: 2) {
+                                Text(selectedChat.receiver?.username ?? "")
 
-                            HStack {
-                                if selectedChat.receiver?.isOnline ?? false {
-                                    Circle()
-                                        .fill(.green)
-                                        .frame(width: 8, height: 8)
+                                HStack {
+                                    if selectedChat.receiver?.isOnline ?? false {
+                                        Circle()
+                                            .fill(.green)
+                                            .frame(width: 8, height: 8)
 
-                                    Text("Online")
+                                        Text("Online")
+                                            .font(.caption)
+                                            .foregroundStyle(.secondary)
+                                    } else {
+                                        Group {
+                                            if let lastSeenOn = selectedChat.receiver?.lastSeenOn {
+                                                Text("Zuletzt gesehen am \(lastSeenOn.formatted())")
+                                            } else {
+                                                Text("Noch nie angemeldet")
+                                            }
+                                        }
                                         .font(.caption)
                                         .foregroundStyle(.secondary)
-                                } else {
-                                    Group {
-                                        if let lastSeenOn = selectedChat.receiver?.lastSeenOn {
-                                            Text("Zuletzt gesehen am \(lastSeenOn.formatted())")
-                                        } else {
-                                            Text("Noch nie angemeldet")
-                                        }
                                     }
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
                                 }
                             }
+                            .padding(.horizontal)
+                            .multilineTextAlignment(.center)
                         }
-                        .padding(.horizontal)
-                        .multilineTextAlignment(.center)
+                        .foregroundColor(.primary)
                     }
 
                     if let receiver = selectedChat.receiver {
