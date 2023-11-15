@@ -78,6 +78,7 @@ extension DashboardView {
             VStack(alignment: .leading) {
                 Text(activity.title)
                     .bold()
+                    .multilineTextAlignment(.leading)
 
                 Text("\(activity.takesPlaceOn.formatted(date: .numeric, time: .shortened)) Uhr")
                     .foregroundStyle(.secondary)
@@ -100,7 +101,7 @@ extension DashboardView {
                             NavigationLink {
                                 ActivityDetailView(activity: activity)
                             } label: {
-                                JournalCell(member: member, description: "\(member.username) nimmt an \(activity.title) teil.")
+                                JournalCell(member: member, description: Text("\(member.username) nimmt an **\(activity.title)** teil."))
                                     .foregroundColor(.primary)
                             }
                         }

@@ -30,7 +30,7 @@ struct ActionButton: View {
             .padding(.horizontal, 12)
             .padding(.vertical, 5)
             .foregroundStyle(isSecondary ? .primary : Color.white)
-            .background(isSecondary ? Color(.secondarySystemBackground) : Color.accentColor)
+            .background(isSecondary ? Color(.systemBackground) : Color.accentColor)
             .clipShape(Capsule())
             .shadow()
         }

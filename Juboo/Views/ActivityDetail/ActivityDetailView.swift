@@ -35,6 +35,8 @@ struct ActivityDetailView: View {
                     HStack {
                         MemberGroup(members: activity.members)
                         Spacer()
+                        Badge(text: "+50 XP", backgroundColor: Color.accentColor, showBorder: true)
+                        Badge(text: "Neu", backgroundColor: .green, showBorder: true)
                     }
                     .offset(y: -15)
                     .padding(.horizontal, 30)

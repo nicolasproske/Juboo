@@ -6,7 +6,7 @@
 //  Copyright © 2023 Nicolas Proske. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
 @Observable
 final class NavigationManager {

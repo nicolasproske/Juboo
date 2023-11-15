@@ -294,14 +294,14 @@
 		92FFB3292AD7F57B00F37919 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				92ACCDF42B03C79B00EA72AB /* ActionButton.swift */,
 				9271F3CD2ADAA05800C20EE7 /* Badge.swift */,
+				92ACCDED2B03AE6A00EA72AB /* JournalCell.swift */,
 				92FFB34F2AD83C5500F37919 /* MemberGroup.swift */,
 				92FFB3272AD7F55900F37919 /* OneTapLoginButton.swift */,
 				92FFB3532AD83CC400F37919 /* PageSection.swift */,
 				927304332ADBFD2C00148554 /* ProgressBadge.swift */,
 				92FFB32A2AD7F58300F37919 /* TextInputField.swift */,
-				92ACCDED2B03AE6A00EA72AB /* JournalCell.swift */,
-				92ACCDF42B03C79B00EA72AB /* ActionButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -468,7 +468,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update # Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release swiftformat \"$SRCROOT\"\n";
+			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update # Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\n#swift run -c release swiftformat \"$SRCROOT\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

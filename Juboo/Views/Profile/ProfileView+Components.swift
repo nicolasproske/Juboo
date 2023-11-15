@@ -102,9 +102,9 @@ extension ProfileView {
     var activitiesSection: some View {
         PageSection(title: "Aktivitäten") {
             VStack(alignment: .leading) {
-                JournalCell(member: member, description: "\(member.username) hat das Abzeichen Social Star freigeschaltet.", isNavigationActive: false)
+                JournalCell(member: member, description: Text("\(member.username) hat das Abzeichen **Social Star** freigeschaltet."), isNavigationActive: false)
                 Divider()
-                JournalCell(member: member, description: "\(member.username) hat 3 neue Follower.", isNavigationActive: false)
+                JournalCell(member: member, description: Text("\(member.username) hat **3 neue Follower**."), isNavigationActive: false)
             }
         }
     }
