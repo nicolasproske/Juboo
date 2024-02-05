@@ -71,7 +71,7 @@ struct ContentView: View {
                         }
 
                         Button {
-                            navigationManager.navigate(to: .login)
+                            print("Tapped")
                         } label: {
                             Image(systemName: "arrow.up.forward.app")
                         }

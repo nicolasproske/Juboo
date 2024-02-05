@@ -9,27 +9,50 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @Environment(NavigationManager.self) var navigationManager
+
     let member: Member
 
-    let columns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 3)
+    let headerColumns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 3)
+    let interestColumns = Array(repeating: GridItem(.flexible(), spacing: 15), count: 2)
+
+    @State private var isFollowing = false
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
                 VStack(alignment: .trailing) {
-                    HStack {
-                        ActionButton(sfSymbol: "plus", text: "Folgen")
-                        ActionButton(sfSymbol: "paperplane.fill", text: "Nachricht", isSecondary: true)
+                    if member.username != MockData.username {
+                        HStack {
+                            ActionButton(
+                                sfSymbol: isFollowing ? "minus.circle.fill" : "plus.circle.fill",
+                                text: isFollowing ? "Nicht mehr folgen" : "Folgen",
+                                isSecondary: isFollowing
+                            ) {
+                                isFollowing.toggle()
+                            }
+
+                            ActionButton(sfSymbol: "paperplane.fill", text: "Nachricht", isSecondary: !isFollowing) {
+                                navigationManager.navigate(to: .chats)
+                            }
+                        }
+                    } else {
+                        ShareLink(
+                            item: URL(string: "https://juboo.de/profile/\(member.id)")!,
+                            preview: SharePreview("Teile das Profil von \"\(member.username)\"", image: Image(member.imageName ?? ""))
+                        ) {
+                            ActionButton(sfSymbol: "square.and.arrow.up", text: "Profil teilen")
+                        }
                     }
 
                     ZStack {
                         PageSection {
-                            LazyVGrid(columns: columns, spacing: 15) {
+                            LazyVGrid(columns: headerColumns, spacing: 15) {
                                 ProgressBadge(member: member)
 
                                 Spacer()
 
-                                rewardsSection
+                                RewardsBadge()
                             }
                         }
 
@@ -50,8 +73,7 @@ struct ProfileView: View {
             }
             .padding(.top, 10)
         }
-        .padding(.horizontal)
+        .padding()
         .scrollIndicators(.hidden)
-        .background(.mainBackground)
     }
 }

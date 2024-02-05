@@ -11,10 +11,12 @@ import SwiftUI
 
 struct ChatsView: View {
     @Environment(\.modelContext) var context
+    @Environment(\.sheetKit) var sheetKit
 
     @Environment(MemberManager.self) var memberManager
+    @Environment(NavigationManager.self) var navigationManager
 
-    @Query var chats: [Chat]
+    @Query(sort: \Chat.receiver?.username, order: .forward) var chats: [Chat]
 
     @State var selectedChat: Chat?
 

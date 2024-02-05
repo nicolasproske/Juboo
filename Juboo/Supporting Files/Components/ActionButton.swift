@@ -13,26 +13,36 @@ struct ActionButton: View {
     let text: String
     var isSecondary = false
 
-    var body: some View {
-        Button {
-            print("Tapped")
-        } label: {
-            HStack {
-                Image(systemName: sfSymbol)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 12, height: 12)
+    var action: (() -> Void)? = nil
 
-                Text(text)
-                    .font(.system(size: 14))
+    var body: some View {
+        if let action {
+            Button {
+                action()
+            } label: {
+                content
             }
-            .fontWeight(.medium)
-            .padding(.horizontal, 12)
-            .padding(.vertical, 5)
-            .foregroundStyle(isSecondary ? .primary : Color.white)
-            .background(isSecondary ? Color(.systemBackground) : Color.accentColor)
-            .clipShape(Capsule())
-            .shadow()
+        } else {
+            content
         }
+    }
+
+    var content: some View {
+        HStack {
+            Image(systemName: sfSymbol)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 12, height: 12)
+
+            Text(text)
+                .font(.system(size: 14))
+        }
+        .fontWeight(.medium)
+        .padding(.horizontal, 12)
+        .padding(.vertical, 5)
+        .foregroundStyle(isSecondary ? .primary : Color.white)
+        .background(isSecondary ? Color(.gray.opacity(0.25)) : Color.accentColor)
+        .clipShape(Capsule())
+        .shadow()
     }
 }

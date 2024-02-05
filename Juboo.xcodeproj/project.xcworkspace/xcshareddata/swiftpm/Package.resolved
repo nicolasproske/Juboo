@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "SheetKit",
+        "repositoryURL": "https://github.com/fatbobman/SheetKit.git",
+        "state": {
+          "branch": null,
+          "revision": "daadabc0f142e2e96a210d19c436b8e2c4bdeb46",
+          "version": "0.1.0"
+        }
+      },
+      {
         "package": "SwiftFormat",
         "repositoryURL": "https://github.com/nicklockwood/SwiftFormat",
         "state": {

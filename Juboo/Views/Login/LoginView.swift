@@ -15,8 +15,8 @@ struct LoginView: View {
 
     @Environment(\.modelContext) var context
 
-    @Query var activities: [Activity]
-    @Query var chats: [Chat]
+    @Query(sort: \Activity.takesPlaceOn, order: .reverse) var activities: [Activity]
+    @Query(sort: \Chat.receiver?.username, order: .forward) var chats: [Chat]
     @Query var members: [Member]
     @Query var messages: [Message]
 

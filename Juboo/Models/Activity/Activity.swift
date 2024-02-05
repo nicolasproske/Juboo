@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MapKit
 import SwiftData
 
 @Model
@@ -15,6 +16,8 @@ class Activity {
     var caption: String
     var takesPlaceOn: Date
     var takesPlaceAt: String
+    var latitude: Double
+    var longitude: Double
     @Relationship var members: [Member]
     var maxMemberCount: Int
     var imageName: String?
@@ -25,6 +28,8 @@ class Activity {
         caption: String,
         takesPlaceOn: Date = .now,
         takesPlaceAt: String = "",
+        latitude: Double,
+        longitude: Double,
         members: [Member] = [],
         maxMemberCount: Int = -1,
         imageName: String? = nil,
@@ -34,6 +39,8 @@ class Activity {
         self.caption = caption
         self.takesPlaceOn = takesPlaceOn
         self.takesPlaceAt = takesPlaceAt
+        self.latitude = latitude
+        self.longitude = longitude
         self.members = members
         self.maxMemberCount = maxMemberCount
         self.imageName = imageName

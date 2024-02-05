@@ -51,7 +51,7 @@ extension ChatsView {
                             .lineLimit(1)
                             .bold(isSelected)
 
-                        if let lastMessage = chat.messages.last, !lastMessage.content.isEmpty {
+                        if let lastMessage = chat.messages.sorted(by: { $0.timestamp < $1.timestamp }).last, !lastMessage.content.isEmpty {
                             Text(lastMessage.content)
                                 .lineLimit(1)
                                 .foregroundStyle(chat.isUnread ? Color.accentColor : Color.secondary)
@@ -104,32 +104,23 @@ extension ChatsView {
 
     var chatContent: some View {
         ScrollView {
-            VStack {
+            VStack(spacing: 10) {
                 if let selectedChat {
-                    ForEach(selectedChat.messages) { message in
+                    ForEach(selectedChat.messages.sorted(by: { $0.timestamp < $1.timestamp })) { message in
                         let selfSend = message.from?.username != selectedChat.sender?.username
 
                         VStack(alignment: selfSend ? .leading : .trailing) {
-                            if let imageName = message.from?.imageName, !imageName.isEmpty {
-                                Image(imageName)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 24, height: 24)
-                                    .clipShape(Circle())
-                                    .padding(.horizontal)
-                            }
-
                             Text(message.content)
                                 .padding(.horizontal)
                                 .padding(.vertical, 8)
                                 .foregroundStyle(selfSend ? Color.primary : Color.white)
                                 .background(selfSend ? Color(.tertiarySystemBackground) : Color.accentColor)
                                 .cornerRadius(8)
+                                .padding(selfSend ? .trailing : .leading, 80)
 
-                            Text(message.timestamp.formatted(date: .numeric, time: .shortened))
+                            Text(message.timestamp.formatted(date: .abbreviated, time: .shortened))
                                 .font(.footnote)
                                 .foregroundStyle(.secondary)
-                                .padding(.horizontal)
                         }
                         .frame(maxWidth: .infinity, alignment: selfSend ? .leading : .trailing)
                     }
@@ -178,8 +169,13 @@ extension ChatsView {
         VStack(spacing: 0) {
             Group {
                 if let selectedChat, let receiver = selectedChat.receiver {
-                    NavigationLink {
-                        ProfileView(member: receiver)
+                    Button {
+                        sheetKit.present {
+                            SheetWrapper {
+                                ProfileView(member: receiver)
+                                    .environment(navigationManager)
+                            }
+                        }
                     } label: {
                         VStack {
                             if let imageName = selectedChat.receiver?.imageName, !imageName.isEmpty {
@@ -205,7 +201,7 @@ extension ChatsView {
                                     } else {
                                         Group {
                                             if let lastSeenOn = selectedChat.receiver?.lastSeenOn {
-                                                Text("Zuletzt gesehen am \(lastSeenOn.formatted())")
+                                                Text("Zuletzt gesehen um \(lastSeenOn.formatted(date: .omitted, time: .shortened)) Uhr")
                                             } else {
                                                 Text("Noch nie angemeldet")
                                             }

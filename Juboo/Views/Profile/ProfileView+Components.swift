@@ -32,48 +32,12 @@ extension ProfileView {
                 .font(.footnote)
                 .foregroundStyle(.secondary)
         }
-        .offset(y: -60)
-    }
-
-    var rewardsSection: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack(spacing: 8) {
-                Image("cup")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 48, height: 48)
-
-                Image("reward")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 48, height: 48)
-
-                Image("certificate")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 48, height: 48)
-
-                Text("9+")
-                    .foregroundStyle(.secondary)
-                    .bold()
-                    .padding(.leading, 10)
-            }
-
-            HStack(alignment: .firstTextBaseline, spacing: 3) {
-                Text("12")
-                    .font(.title)
-                    .bold()
-
-                Text("Abzeichen")
-                    .foregroundStyle(.secondary)
-                    .fontWeight(.semibold)
-            }
-        }
+        .offset(y: -50)
     }
 
     var interestsSection: some View {
         PageSection(title: "Meine Interessen") {
-            LazyVGrid(columns: columns, spacing: 15) {
+            LazyVGrid(columns: interestColumns, spacing: 15) {
                 InterestBadge(text: "Basketball 🏀", color: .orange)
                 InterestBadge(text: "Natur 🪴", color: .green)
                 InterestBadge(text: "Kreativität 🎭", color: .blue)
@@ -146,6 +110,7 @@ extension ProfileView {
                 }
                 .font(.footnote)
             }
+            .multilineTextAlignment(.center)
         }
     }
 }

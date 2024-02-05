@@ -10,6 +10,8 @@ import SwiftData
 import SwiftUI
 
 struct DashboardView: View {
+    @Environment(\.sheetKit) var sheetKit
+
     @Environment(NavigationManager.self) var navigationManager
     @Environment(MemberManager.self) var memberManager
 
@@ -22,7 +24,7 @@ struct DashboardView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 180, height: 180)
-                .padding(40)
+                .padding(30)
 
             VStack(alignment: .leading, spacing: 30) {
                 HStack(spacing: 10) {

@@ -6,6 +6,7 @@
 //  Copyright © 2023 Nicolas Proske. All rights reserved.
 //
 
+import SheetKit
 import SwiftUI
 
 @Observable
@@ -16,12 +17,16 @@ final class NavigationManager {
 
 extension NavigationManager {
     func navigate(to screen: Screen) {
+        SheetKit().dismissAllSheets()
+
         if currentScreen != screen {
             currentScreen = screen
         }
     }
 
     func navigate(to sidebarItem: SidebarItem) {
+        SheetKit().dismissAllSheets()
+
         if currentSidebarItem != sidebarItem {
             currentSidebarItem = sidebarItem
         }

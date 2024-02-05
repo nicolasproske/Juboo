@@ -39,7 +39,7 @@ extension LoginView {
     }
 
     func login() {
-        if let randomMember = members.randomElement() {
+        if let randomMember = members.first(where: { $0.username == MockData.username }) {
             memberManager.loginMember(member: randomMember)
             navigationManager.navigate(to: .main)
         } else {

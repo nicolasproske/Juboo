@@ -9,7 +9,11 @@
 import SwiftUI
 
 struct ActivityDetailView: View {
+    @Environment(NavigationManager.self) var navigationManager
+
     let activity: Activity
+
+    @State var isParticipating = false
 
     var body: some View {
         ScrollView {
@@ -18,22 +22,24 @@ struct ActivityDetailView: View {
 
                 ZStack(alignment: .top) {
                     PageSection {
-                        HStack(alignment: .top) {
-                            VStack(alignment: .leading, spacing: 0) {
-                                header
-                                actions
+                        VStack(alignment: .leading, spacing: 0) {
+                            header
+                            links
+
+                            HStack(alignment: .top) {
                                 description
+                                Spacer(minLength: 20)
+                                datePicker
                             }
-
-                            Spacer(minLength: 20)
-
-                            datePicker
+                            .padding(.top)
                         }
                         .padding(.top, 15)
                     }
 
                     HStack {
-                        MemberGroup(members: activity.members)
+                        MemberGroup(members: activity.members.sorted(by: { $0.username < $1.username }))
+                            .environment(navigationManager)
+
                         Spacer()
                         Badge(text: "+50 XP", backgroundColor: Color.accentColor, showBorder: true)
                         Badge(text: "Neu", backgroundColor: .green, showBorder: true)
@@ -47,8 +53,7 @@ struct ActivityDetailView: View {
                 Spacer()
             }
         }
-        .padding(.horizontal)
+        .padding()
         .scrollIndicators(.hidden)
-        .background(.mainBackground)
     }
 }

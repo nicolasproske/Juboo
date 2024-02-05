@@ -21,9 +21,15 @@ extension ActivityDetailView {
     }
 
     @ViewBuilder var header: some View {
-        Text(activity.title)
-            .font(.system(size: 26, weight: .semibold))
-            .padding(.bottom, 5)
+        HStack(alignment: .top) {
+            Text(activity.title)
+                .font(.system(size: 26, weight: .semibold))
+
+            Spacer()
+
+            actions
+        }
+        .padding(.bottom, 5)
 
         HStack {
             Image(systemName: "clock")
@@ -48,10 +54,37 @@ extension ActivityDetailView {
 
     var actions: some View {
         HStack {
-            ActionButton(sfSymbol: "checkmark", text: "Teilnehmen")
-            ActionButton(sfSymbol: "person.fill", text: "Aktivität teilen", isSecondary: true)
+            ActionButton(
+                sfSymbol: isParticipating ? "minus.circle.fill" : "checkmark.circle.fill",
+                text: isParticipating ? "Ausschreiben" : "Teilnehmen",
+                isSecondary: isParticipating
+            ) {
+                isParticipating.toggle()
+            }
+
+            ShareLink(
+                item: URL(string: "https://juboo.de/activity/\(activity.id)")!,
+                preview: SharePreview("Teile die Aktivität \"\(activity.title)\"", image: Image(activity.imageName ?? ""))
+            ) {
+                ActionButton(sfSymbol: "square.and.arrow.up", text: "Aktivität teilen", isSecondary: !isParticipating)
+            }
         }
-        .padding(.top)
+    }
+
+    var links: some View {
+        HStack(spacing: 20) {
+            HStack {
+                Image(systemName: "link")
+                Text("Internetseite")
+            }
+
+            HStack {
+                Image(systemName: "camera.aperture")
+                Text("Social Media")
+            }
+        }
+        .foregroundStyle(Color.accentColor)
+        .padding(.vertical, 15)
     }
 
     var description: some View {
@@ -63,22 +96,7 @@ extension ActivityDetailView {
 
             Text(activity.caption)
                 .padding(.top, 2)
-
-            HStack(spacing: 20) {
-                HStack {
-                    Image(systemName: "link")
-                    Text("Internetseite")
-                }
-
-                HStack {
-                    Image(systemName: "camera.aperture")
-                    Text("Social Media")
-                }
-            }
-            .foregroundStyle(Color.accentColor)
-            .padding(.top)
         }
-        .padding(.top, 35)
     }
 
     var datePicker: some View {

@@ -6,6 +6,7 @@
 //  Copyright © 2023 Nicolas Proske. All rights reserved.
 //
 
+import MapKit
 import SwiftUI
 
 extension DiscoveryView {
@@ -21,11 +22,20 @@ extension DiscoveryView {
     }
 
     struct ActivityCell: View {
+        @Environment(\.sheetKit) private var sheetKit
+
+        @Environment(NavigationManager.self) var navigationManager
+
         let activity: Activity
 
         var body: some View {
-            NavigationLink {
-                ActivityDetailView(activity: activity)
+            Button {
+                sheetKit.present {
+                    SheetWrapper {
+                        ActivityDetailView(activity: activity)
+                            .environment(navigationManager)
+                    }
+                }
             } label: {
                 ZStack(alignment: .topLeading) {
                     VStack(alignment: .leading) {
@@ -36,7 +46,7 @@ extension DiscoveryView {
                     .cornerRadius(8)
                     .shadow()
 
-                    MemberGroup(members: activity.members)
+                    MemberGroup(members: activity.members.sorted(by: { $0.username < $1.username }))
                         .offset(y: 180)
                         .padding(.leading)
                 }

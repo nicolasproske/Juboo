@@ -9,6 +9,10 @@
 import SwiftUI
 
 struct JournalCell: View {
+    @Environment(\.sheetKit) private var sheetKit
+
+    @Environment(NavigationManager.self) var navigationManager
+
     let member: Member
     let description: Text
     var isNavigationActive: Bool = true
@@ -20,7 +24,7 @@ struct JournalCell: View {
             VStack(alignment: .leading) {
                 description
                     .multilineTextAlignment(.leading)
-                
+
                 timestamp
             }
         }
@@ -28,8 +32,13 @@ struct JournalCell: View {
 
     @ViewBuilder private var content: some View {
         if isNavigationActive {
-            NavigationLink {
-                ProfileView(member: member)
+            Button {
+                sheetKit.present {
+                    SheetWrapper {
+                        ProfileView(member: member)
+                            .environment(navigationManager)
+                    }
+                }
             } label: {
                 image
             }

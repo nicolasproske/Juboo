@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		924195DA2ADAC94D007F4662 /* ShadowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924195D92ADAC94D007F4662 /* ShadowModifier.swift */; };
+		9241D2982B70D9B10098B0A9 /* RewardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9241D2972B70D9B10098B0A9 /* RewardsView.swift */; };
+		9241D29A2B70DEEA0098B0A9 /* SidebarView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9241D2992B70DEEA0098B0A9 /* SidebarView+Components.swift */; };
+		9241D29D2B70E14C0098B0A9 /* SheetKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9241D29C2B70E14C0098B0A9 /* SheetKit */; };
+		9241D29F2B70ED100098B0A9 /* SheetWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9241D29E2B70ED100098B0A9 /* SheetWrapper.swift */; };
+		9241D2A12B71044E0098B0A9 /* RewardsBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9241D2A02B71044E0098B0A9 /* RewardsBadge.swift */; };
 		9243B6882ADD3A880007FD0D /* ChatsView+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243B6872ADD3A880007FD0D /* ChatsView+Functions.swift */; };
 		9243B68D2ADD43530007FD0D /* MemberManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9243B68C2ADD43530007FD0D /* MemberManager.swift */; };
 		9271F3CC2ADA7BB000C20EE7 /* DiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9271F3CB2ADA7BB000C20EE7 /* DiscoveryView.swift */; };
@@ -59,6 +64,10 @@
 
 /* Begin PBXFileReference section */
 		924195D92ADAC94D007F4662 /* ShadowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowModifier.swift; sourceTree = "<group>"; };
+		9241D2972B70D9B10098B0A9 /* RewardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsView.swift; sourceTree = "<group>"; };
+		9241D2992B70DEEA0098B0A9 /* SidebarView+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SidebarView+Components.swift"; sourceTree = "<group>"; };
+		9241D29E2B70ED100098B0A9 /* SheetWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetWrapper.swift; sourceTree = "<group>"; };
+		9241D2A02B71044E0098B0A9 /* RewardsBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsBadge.swift; sourceTree = "<group>"; };
 		9243B6872ADD3A880007FD0D /* ChatsView+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatsView+Functions.swift"; sourceTree = "<group>"; };
 		9243B68C2ADD43530007FD0D /* MemberManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberManager.swift; sourceTree = "<group>"; };
 		9271F3CB2ADA7BB000C20EE7 /* DiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
@@ -116,12 +125,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9241D29D2B70E14C0098B0A9 /* SheetKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9241D2962B70D9A30098B0A9 /* Rewards */ = {
+			isa = PBXGroup;
+			children = (
+				9241D2972B70D9B10098B0A9 /* RewardsView.swift */,
+			);
+			path = Rewards;
+			sourceTree = "<group>";
+		};
 		9243B6892ADD3F3C0007FD0D /* Member */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +265,7 @@
 				9271F3CA2ADA7BA400C20EE7 /* Discovery */,
 				9271F3D52ADAB56700C20EE7 /* Chats */,
 				92B5E99E2AF93209006015D3 /* Profile */,
+				9241D2962B70D9A30098B0A9 /* Rewards */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -301,7 +320,9 @@
 				92FFB3272AD7F55900F37919 /* OneTapLoginButton.swift */,
 				92FFB3532AD83CC400F37919 /* PageSection.swift */,
 				927304332ADBFD2C00148554 /* ProgressBadge.swift */,
+				9241D29E2B70ED100098B0A9 /* SheetWrapper.swift */,
 				92FFB32A2AD7F58300F37919 /* TextInputField.swift */,
+				9241D2A02B71044E0098B0A9 /* RewardsBadge.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -347,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				92FFB3402AD800FE00F37919 /* SidebarView.swift */,
+				9241D2992B70DEEA0098B0A9 /* SidebarView+Components.swift */,
 			);
 			path = Sidebar;
 			sourceTree = "<group>";
@@ -396,6 +418,9 @@
 			dependencies = (
 			);
 			name = Juboo;
+			packageProductDependencies = (
+				9241D29C2B70E14C0098B0A9 /* SheetKit */,
+			);
 			productName = Juboo;
 			productReference = 92FFB2F42AD7C36F00F37919 /* Juboo.app */;
 			productType = "com.apple.product-type.application";
@@ -425,6 +450,9 @@
 				Base,
 			);
 			mainGroup = 92FFB2EB2AD7C36F00F37919;
+			packageReferences = (
+				9241D29B2B70E14C0098B0A9 /* XCRemoteSwiftPackageReference "SheetKit" */,
+			);
 			productRefGroup = 92FFB2F52AD7C36F00F37919 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -486,9 +514,13 @@
 				9243B68D2ADD43530007FD0D /* MemberManager.swift in Sources */,
 				9271F3D72ADAB58000C20EE7 /* ChatsView.swift in Sources */,
 				92FFB3412AD800FE00F37919 /* SidebarView.swift in Sources */,
+				9241D29A2B70DEEA0098B0A9 /* SidebarView+Components.swift in Sources */,
 				92FFB3382AD7FE2400F37919 /* DashboardView.swift in Sources */,
 				92FFB3442AD8023F00F37919 /* SidebarItem.swift in Sources */,
+				9241D2A12B71044E0098B0A9 /* RewardsBadge.swift in Sources */,
 				92FFB3542AD83CC400F37919 /* PageSection.swift in Sources */,
+				9241D29F2B70ED100098B0A9 /* SheetWrapper.swift in Sources */,
+				9241D2982B70D9B10098B0A9 /* RewardsView.swift in Sources */,
 				92FFB2FA2AD7C36F00F37919 /* ContentView.swift in Sources */,
 				92FFB3282AD7F55900F37919 /* OneTapLoginButton.swift in Sources */,
 				92ACCDF72B03CE7500EA72AB /* ActivityDetailView+Components.swift in Sources */,
@@ -673,6 +705,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -708,6 +741,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -736,6 +770,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9241D29B2B70E14C0098B0A9 /* XCRemoteSwiftPackageReference "SheetKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fatbobman/SheetKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9241D29C2B70E14C0098B0A9 /* SheetKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9241D29B2B70E14C0098B0A9 /* XCRemoteSwiftPackageReference "SheetKit" */;
+			productName = SheetKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 92FFB2EC2AD7C36F00F37919 /* Project object */;
 }
