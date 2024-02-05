@@ -11,10 +11,16 @@ import SwiftData
 
 @Model
 class Chat {
+    /// The sender member of the chat.
     @Relationship(deleteRule: .nullify) var sender: Member?
+    
+    /// The receiver member of the chat.
     @Relationship(deleteRule: .nullify) var receiver: Member?
 
+    /// An array of messages within the chat.
     var messages: [Message]
+    
+    /// The date and time when the chat was last opened.
     var lastOpenedOn: Date?
 
     /// Initializes a new instance of a chat.

@@ -11,8 +11,13 @@ import SwiftData
 
 @Model
 class Message {
+    /// The text content of the message.
     var content: String
+    
+    /// The sender of the message.
     @Relationship(deleteRule: .nullify) var from: Member?
+    
+    /// The date and time when the message was sent.
     let timestamp: Date
 
     /// Initializes a new instance of a message.

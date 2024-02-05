@@ -12,15 +12,34 @@ import SwiftData
 
 @Model
 class Activity {
+    /// The title of the activity.
     var title: String
+    
+    /// A brief description of the activity.
     var caption: String
+    
+    /// The date and time when the activity takes place.
     var takesPlaceOn: Date
+    
+    /// A string representing the location where the activity takes place.
     var takesPlaceAt: String
+    
+    /// The latitude of the activity's location.
     var latitude: Double
+    
+    /// The longitude of the activity's location.
     var longitude: Double
+    
+    /// A list of members participating in the activity.
     @Relationship var members: [Member]
+    
+    /// The maximum number of members that can participate.
     var maxMemberCount: Int
+    
+    /// A name of the image associated with the activity.
     var imageName: String?
+    
+    /// The date and time when the activity was created.
     var createdOn: Date
 
     /// Initializes a new instance of an activity.
