@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "sheetkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/fatbobman/SheetKit.git",
+      "state" : {
+        "revision" : "daadabc0f142e2e96a210d19c436b8e2c4bdeb46",
+        "version" : "0.1.0"
+      }
+    }
+  ],
+  "version" : 2
+}
