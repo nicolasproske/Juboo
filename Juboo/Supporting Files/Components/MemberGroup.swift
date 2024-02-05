@@ -67,7 +67,3 @@ struct MemberGroup: View {
         }
     }
 }
-
-#Preview {
-    MemberGroup(members: [])
-}

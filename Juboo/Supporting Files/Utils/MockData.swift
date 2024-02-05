@@ -80,6 +80,7 @@ enum MockMember: CaseIterable {
 enum MockChat: CaseIterable {
     case asam
     case ilayda
+    case lukas
 
     var object: Chat {
         switch self {
@@ -87,6 +88,8 @@ enum MockChat: CaseIterable {
             return MockObject.chat_asam
         case .ilayda:
             return MockObject.chat_ilayda
+        case .lukas:
+            return MockObject.chat_lukas
         }
     }
 }
@@ -179,5 +182,18 @@ enum MockObject {
                     timestamp: Date(timeIntervalSinceNow: -195))
         ],
         lastOpenedOn: Date(timeIntervalSinceNow: -200)
+    )
+
+    static let chat_lukas = Chat(
+        sender: MockObject.ollie,
+        receiver: MockObject.lukas,
+        messages: [
+            Message(
+                content: "Kein Problem, immer gerne!",
+                from: MockObject.ollie,
+                timestamp: Date(timeIntervalSinceNow: -300)
+            )
+        ],
+        lastOpenedOn: Date(timeIntervalSinceNow: -300)
     )
 }

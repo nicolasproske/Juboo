@@ -40,9 +40,3 @@ struct SheetWrapper<Content: View>: View {
         }
     }
 }
-
-#Preview {
-    SheetWrapper {
-        Text("Sample content")
-    }
-}

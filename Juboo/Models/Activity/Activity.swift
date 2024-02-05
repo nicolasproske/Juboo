@@ -23,6 +23,18 @@ class Activity {
     var imageName: String?
     var createdOn: Date
 
+    /// Initializes a new instance of an activity.
+    /// - Parameters:
+    ///   - title: The title of the activity.
+    ///   - caption: A brief description of the activity.
+    ///   - takesPlaceOn: The date and time when the activity takes place. Defaults to the current date and time.
+    ///   - takesPlaceAt: A string representing the location where the activity takes place. Defaults to an empty string.
+    ///   - latitude: The latitude of the activity's location.
+    ///   - longitude: The longitude of the activity's location.
+    ///   - members: A list of members participating in the activity. Defaults to an empty array.
+    ///   - maxMemberCount: The maximum number of members that can participate. Defaults to -1, indicating no limit.
+    ///   - imageName: An optional name of the image associated with the activity.
+    ///   - createdOn: The date and time when the activity was created. Defaults to the current date and time.
     init(
         title: String,
         caption: String,
@@ -49,6 +61,7 @@ class Activity {
 }
 
 extension Activity {
+    /// Indicates whether the activity is new based on its creation date.
     var isNew: Bool {
         let components = Calendar.current.dateComponents([.day], from: .now, to: createdOn)
 
@@ -59,6 +72,7 @@ extension Activity {
         return false
     }
 
+    /// Indicates whether the activity is happening soon within the next three days.
     var isSoon: Bool {
         let currentDate = Date()
         let calendar = Calendar.current
@@ -75,6 +89,7 @@ extension Activity {
         return false
     }
 
+    /// Indicates whether the activity has already taken place.
     var isDone: Bool {
         Date.now > takesPlaceOn
     }

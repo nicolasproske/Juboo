@@ -18,7 +18,7 @@ extension SidebarView {
             Button {
                 navigationManager.navigate(to: .chats)
             } label: {
-                HStack {
+                HStack(spacing: 10) {
                     image
 
                     VStack(alignment: .leading, spacing: 1) {
@@ -26,33 +26,23 @@ extension SidebarView {
                             .foregroundStyle(.primary)
                             .lineLimit(1)
 
-                        HStack(spacing: 5) {
-                            if chat.receiver?.isOnline ?? false {
-                                Circle()
-                                    .fill(.green)
-                                    .frame(width: 8, height: 8)
-
-                                Text("Online")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            } else {
-                                Group {
-                                    if let lastSeenOn = chat.receiver?.lastSeenOn {
-                                        Text("Zuletzt gesehen um \(lastSeenOn.formatted(date: .omitted, time: .shortened)) Uhr")
-                                    } else {
-                                        Text("Noch nie angemeldet")
-                                    }
-                                }
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                            }
+                        if let lastMessage = chat.messages.sorted(by: { $0.timestamp < $1.timestamp }).last, !lastMessage.content.isEmpty {
+                            Text(lastMessage.content)
+                                .lineLimit(1)
+                                .foregroundStyle(Color.secondary)
                         }
-                        .lineLimit(1)
                     }
 
                     Spacer()
+
+                    Badge(
+                        text: "\(chat.messages.sorted(by: { $0.timestamp < $1.timestamp }).last?.timestamp.formatted(date: .omitted, time: .shortened) ?? "9:41") Uhr",
+                        textColor: .gray,
+                        backgroundColor: .gray,
+                        opacity: 0.1,
+                        showShadow: false
+                    )
                 }
-                .padding(.horizontal, 20)
                 .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
@@ -64,7 +54,7 @@ extension SidebarView {
                 Image(imageName)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 30, height: 30)
+                    .frame(width: 40, height: 40)
                     .clipShape(Circle())
             }
         }

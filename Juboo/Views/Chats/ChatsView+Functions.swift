@@ -9,19 +9,22 @@
 import Foundation
 
 extension ChatsView {
+    /// Selects a chat and updates its last opened timestamp.
+    /// - Parameter chat: The `Chat` object to be selected. If `nil`, it deselects the current chat.
     func selectChat(chat: Chat?) {
         selectedChat = chat
 
+        // If a chat is selected, update its last opened timestamp to now.
         if let selectedChat {
             selectedChat.lastOpenedOn = .now
         }
     }
 
+    /// Sends a message with the given text.
+    /// - Parameter text: The text of the message to be sent.
     func sendMessage(text: String) {
-//        if let member = memberManager.currentMember {
-//            let message = Message(content: text, from: member, timestamp: .now)
-//            selectedChat?.messages.append(message)
-//        }
+        // Implementation to send a message. Currently, it prints the text to the console.
+        // This should be replaced with actual message sending logic.
         print(text)
     }
 }

@@ -17,6 +17,12 @@ class Chat {
     var messages: [Message]
     var lastOpenedOn: Date?
 
+    /// Initializes a new instance of a chat.
+    /// - Parameters:
+    ///   - sender: The sender member of the chat. Defaults to nil.
+    ///   - receiver: The receiver member of the chat. Defaults to nil.
+    ///   - messages: An array of messages within the chat. Defaults to an empty array.
+    ///   - lastOpenedOn: The date and time when the chat was last opened. Defaults to nil.
     init(sender: Member? = nil, receiver: Member? = nil, messages: [Message] = [], lastOpenedOn: Date? = nil) {
         self.sender = sender
         self.receiver = receiver
@@ -26,10 +32,12 @@ class Chat {
 }
 
 extension Chat {
+    /// The last message sent in the chat, if any.
     private var lastMessage: Message? {
         messages.last
     }
 
+    /// Indicates whether there are any unread messages in the chat based on the last opened timestamp.
     var isUnread: Bool {
         lastOpenedOn ?? .now < lastMessage?.timestamp ?? .now
     }

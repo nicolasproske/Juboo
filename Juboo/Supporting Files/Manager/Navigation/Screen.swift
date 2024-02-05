@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Represents the screens in the application.
 enum Screen {
     case login
     case main

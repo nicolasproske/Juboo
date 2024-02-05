@@ -15,6 +15,11 @@ class Message {
     @Relationship(deleteRule: .nullify) var from: Member?
     let timestamp: Date
 
+    /// Initializes a new instance of a message.
+    /// - Parameters:
+    ///   - content: The text content of the message.
+    ///   - from: The sender of the message. Defaults to nil if not specified.
+    ///   - timestamp: The date and time when the message was sent.
     init(content: String, from: Member? = nil, timestamp: Date) {
         self.content = content
         self.from = from

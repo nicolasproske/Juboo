@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		924195DA2ADAC94D007F4662 /* ShadowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924195D92ADAC94D007F4662 /* ShadowModifier.swift */; };
-		9241D2982B70D9B10098B0A9 /* RewardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9241D2972B70D9B10098B0A9 /* RewardsView.swift */; };
 		9241D29A2B70DEEA0098B0A9 /* SidebarView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9241D2992B70DEEA0098B0A9 /* SidebarView+Components.swift */; };
 		9241D29D2B70E14C0098B0A9 /* SheetKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9241D29C2B70E14C0098B0A9 /* SheetKit */; };
 		9241D29F2B70ED100098B0A9 /* SheetWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9241D29E2B70ED100098B0A9 /* SheetWrapper.swift */; };
@@ -40,7 +39,6 @@
 		92FFB30C2AD7C83B00F37919 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 92FFB30A2AD7C83B00F37919 /* README.md */; };
 		92FFB30F2AD7CFB500F37919 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 92FFB30E2AD7CFB500F37919 /* .swiftformat */; };
 		92FFB31D2AD7D50300F37919 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB31C2AD7D50300F37919 /* LoginView.swift */; };
-		92FFB31F2AD7D91A00F37919 /* ExternalResources in Resources */ = {isa = PBXBuildFile; fileRef = 92FFB31E2AD7D91A00F37919 /* ExternalResources */; };
 		92FFB3232AD7E28200F37919 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB3222AD7E28200F37919 /* ButtonModifier.swift */; };
 		92FFB3262AD7E2A400F37919 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB3252AD7E2A400F37919 /* ViewExtension.swift */; };
 		92FFB3282AD7F55900F37919 /* OneTapLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FFB3272AD7F55900F37919 /* OneTapLoginButton.swift */; };
@@ -64,7 +62,6 @@
 
 /* Begin PBXFileReference section */
 		924195D92ADAC94D007F4662 /* ShadowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowModifier.swift; sourceTree = "<group>"; };
-		9241D2972B70D9B10098B0A9 /* RewardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsView.swift; sourceTree = "<group>"; };
 		9241D2992B70DEEA0098B0A9 /* SidebarView+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SidebarView+Components.swift"; sourceTree = "<group>"; };
 		9241D29E2B70ED100098B0A9 /* SheetWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetWrapper.swift; sourceTree = "<group>"; };
 		9241D2A02B71044E0098B0A9 /* RewardsBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsBadge.swift; sourceTree = "<group>"; };
@@ -98,7 +95,6 @@
 		92FFB30E2AD7CFB500F37919 /* .swiftformat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		92FFB3192AD7D1CE00F37919 /* BuildTools */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = BuildTools; sourceTree = "<group>"; };
 		92FFB31C2AD7D50300F37919 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		92FFB31E2AD7D91A00F37919 /* ExternalResources */ = {isa = PBXFileReference; lastKnownFileType = text; path = ExternalResources; sourceTree = "<group>"; };
 		92FFB3222AD7E28200F37919 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
 		92FFB3252AD7E2A400F37919 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		92FFB3272AD7F55900F37919 /* OneTapLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTapLoginButton.swift; sourceTree = "<group>"; };
@@ -132,14 +128,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9241D2962B70D9A30098B0A9 /* Rewards */ = {
-			isa = PBXGroup;
-			children = (
-				9241D2972B70D9B10098B0A9 /* RewardsView.swift */,
-			);
-			path = Rewards;
-			sourceTree = "<group>";
-		};
 		9243B6892ADD3F3C0007FD0D /* Member */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,7 +202,6 @@
 		92FFB2EB2AD7C36F00F37919 = {
 			isa = PBXGroup;
 			children = (
-				92FFB31E2AD7D91A00F37919 /* ExternalResources */,
 				92FFB30E2AD7CFB500F37919 /* .swiftformat */,
 				92FFB3092AD7C83B00F37919 /* .gitignore */,
 				92FFB30A2AD7C83B00F37919 /* README.md */,
@@ -265,7 +252,6 @@
 				9271F3CA2ADA7BA400C20EE7 /* Discovery */,
 				9271F3D52ADAB56700C20EE7 /* Chats */,
 				92B5E99E2AF93209006015D3 /* Profile */,
-				9241D2962B70D9A30098B0A9 /* Rewards */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -468,7 +454,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				92FFB30F2AD7CFB500F37919 /* .swiftformat in Resources */,
-				92FFB31F2AD7D91A00F37919 /* ExternalResources in Resources */,
 				92FFB2FF2AD7C37000F37919 /* Preview Assets.xcassets in Resources */,
 				92FFB30B2AD7C83B00F37919 /* .gitignore in Resources */,
 				92FFB30C2AD7C83B00F37919 /* README.md in Resources */,
@@ -496,7 +481,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update # Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\n#swift run -c release swiftformat \"$SRCROOT\"\n";
+			shellScript = "cd BuildTools\nSDKROOT=(xcrun --sdk macosx --show-sdk-path)\n#swift package update # Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release swiftformat \"$SRCROOT\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -520,7 +505,6 @@
 				9241D2A12B71044E0098B0A9 /* RewardsBadge.swift in Sources */,
 				92FFB3542AD83CC400F37919 /* PageSection.swift in Sources */,
 				9241D29F2B70ED100098B0A9 /* SheetWrapper.swift in Sources */,
-				9241D2982B70D9B10098B0A9 /* RewardsView.swift in Sources */,
 				92FFB2FA2AD7C36F00F37919 /* ContentView.swift in Sources */,
 				92FFB3282AD7F55900F37919 /* OneTapLoginButton.swift in Sources */,
 				92ACCDF72B03CE7500EA72AB /* ActivityDetailView+Components.swift in Sources */,

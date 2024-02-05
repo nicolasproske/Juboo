@@ -50,7 +50,3 @@ struct TextInputField: View {
         }
     }
 }
-
-#Preview {
-    TextInputField(label: "Sample label", placeholder: "Sample placeholder", text: .constant("Sample text"))
-}

@@ -34,7 +34,3 @@ struct Badge: View {
             )
     }
 }
-
-#Preview {
-    Badge(text: "Sample text", backgroundColor: .green)
-}

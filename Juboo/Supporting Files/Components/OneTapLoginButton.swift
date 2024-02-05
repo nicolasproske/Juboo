@@ -34,7 +34,3 @@ struct OneTapLoginButton: View {
         .overlay(RoundedRectangle(cornerRadius: 8).stroke(.secondary.opacity(0.5), lineWidth: 1))
     }
 }
-
-#Preview {
-    OneTapLoginButton(image: "sample-image", label: "Sample label")
-}
